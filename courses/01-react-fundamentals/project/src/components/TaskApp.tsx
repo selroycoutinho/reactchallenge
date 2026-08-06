@@ -1,4 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react'
+import TaskForm from './TaskForm'
 import TaskList, { type Task } from './TaskList'
 
 interface TaskAppProps {
@@ -13,10 +14,24 @@ interface TaskAppProps {
   linkToTaskDetail?: boolean
 }
 
-export default function TaskApp({ tasks = [] }: TaskAppProps) {
+export default function TaskApp({
+  tasks = [],
+  setTasks,
+  showForm,
+}: TaskAppProps) {
+  const handleAddTask = (task: Record<string, unknown>) => {
+    if (!setTasks) return
+
+    setTasks((prev) => [...prev, task as Task])
+  }
+
   return (
     <>
       <h2 id="task-count">{tasks.length} Tasks</h2>
+
+      {showForm && (
+        <TaskForm onAddTask={handleAddTask} />
+      )}
 
       <TaskList tasks={tasks} />
     </>
