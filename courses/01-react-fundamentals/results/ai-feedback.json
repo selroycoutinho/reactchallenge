@@ -1,1 +1,48 @@
-[]
+[
+  {
+    "challengeId": "01-static-task-display",
+    "challengeName": "Static Task Display",
+    "aiReview": {
+      "challengeId": "01-static-task-display",
+      "timestamp": "2026-08-06T08:39:39.639Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript interfaces is a good practice for defining the shape of data.",
+        "The code is relatively concise and easy to follow."
+      ],
+      "improvements": [
+        "Some of the variable names could be more descriptive. For example, `tasks` in `TaskList.tsx` could be renamed to `taskList` to avoid confusion with the `tasks` array.",
+        "In `TaskCard.tsx`, the `priority` prop could be validated to ensure it's one of the allowed values (Low, Medium, High).",
+        "In `TaskList.tsx`, the `tasks` array could be sorted by priority for better readability."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices. However, there are some minor improvements that could be made to enhance readability and maintainability."
+    }
+  },
+  {
+    "challengeId": "02-dynamic-task-rendering",
+    "challengeName": "Dynamic Task Rendering",
+    "aiReview": {
+      "challengeId": "02-dynamic-task-rendering",
+      "timestamp": "2026-08-06T12:27:53.612Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and easy to follow, with clear separation of concerns between components.",
+        "The use of TypeScript and functional components is a good practice, making the code more maintainable and efficient.",
+        "The code is well-documented, with clear and concise comments explaining the purpose of each component and function."
+      ],
+      "improvements": [
+        "Some of the variable names could be more descriptive. For example, `list` in the `TaskList` component could be renamed to `tasks` to make it clearer what it represents.",
+        "The `handleDelete` function in the `AppContent` component could be extracted into a separate utility function to make it more reusable and maintainable.",
+        "The `TaskList` component could benefit from a more robust error handling mechanism to handle cases where the `tasks` prop is not provided or is empty."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and maintainable, with a good separation of concerns between components. However, there are some minor improvements that can be made to make the code even more efficient and robust."
+    }
+  }
+]

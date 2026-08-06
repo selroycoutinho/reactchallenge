@@ -11,7 +11,13 @@ export interface Task {
   dueDate?: string | number
 }
 
-const tasks: Task[] = [
+interface TaskListProps {
+  tasks?: Task[]
+  countText?: string
+  onToggle?: (id: string | number) => void
+}
+
+const HARDCODED_TASKS: Task[] = [
   {
     id: 1,
     title: 'Task One',
@@ -35,10 +41,12 @@ const tasks: Task[] = [
   },
 ]
 
-export default function TaskList() {
+export default function TaskList({ tasks }: TaskListProps) {
+  const list = tasks ?? HARDCODED_TASKS
+
   return (
     <section id="task-list">
-      {tasks.map((task) => (
+      {list.map((task) => (
         <TaskCard
           key={task.id}
           title={task.title}
