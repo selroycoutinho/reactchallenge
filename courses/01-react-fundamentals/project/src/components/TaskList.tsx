@@ -15,6 +15,7 @@ interface TaskListProps {
   tasks?: Task[]
   countText?: string
   onToggle?: (id: string | number) => void
+  onDelete?: (id: string | number) => void
 }
 
 const HARDCODED_TASKS: Task[] = [
@@ -41,7 +42,11 @@ const HARDCODED_TASKS: Task[] = [
   },
 ]
 
-export default function TaskList({ tasks, onToggle }: TaskListProps) {
+export default function TaskList({
+  tasks,
+  onToggle,
+  onDelete,
+}: TaskListProps) {
   const list = tasks ?? HARDCODED_TASKS
 
   return (
@@ -55,6 +60,7 @@ export default function TaskList({ tasks, onToggle }: TaskListProps) {
           priority={task.priority}
           completed={task.completed}
           onToggle={onToggle}
+          onDelete={onDelete}
         />
       ))}
     </section>

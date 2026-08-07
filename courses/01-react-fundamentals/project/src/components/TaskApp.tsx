@@ -19,6 +19,7 @@ export default function TaskApp({
   setTasks,
   showForm,
   countFormat,
+  onDelete,
 }: TaskAppProps) {
   const handleAddTask = (task: Record<string, unknown>) => {
     if (!setTasks) return
@@ -55,6 +56,7 @@ export default function TaskApp({
       <TaskList
         tasks={tasks}
         onToggle={handleToggle}
+        onDelete={onDelete}
       />
     </>
   )
