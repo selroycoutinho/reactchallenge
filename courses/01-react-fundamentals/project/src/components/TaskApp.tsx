@@ -18,6 +18,12 @@ interface TaskAppProps {
 
 type Filter = 'all' | 'active' | 'completed'
 
+type SortOrder =
+  | 'recent'
+  | 'high-to-low'
+  | 'low-to-high'
+  | 'alphabetical'
+
 export default function TaskApp({
   tasks = [],
   setTasks,
@@ -27,6 +33,7 @@ export default function TaskApp({
   onDelete,
 }: TaskAppProps) {
   const [filter, setFilter] = useState<Filter>('all')
+  const [sortOrder, setSortOrder] = useState<SortOrder>('recent')
 
   const handleAddTask = (task: Record<string, unknown>) => {
     if (!setTasks) return
@@ -55,11 +62,31 @@ export default function TaskApp({
         ? tasks.filter((task) => task.completed)
         : tasks
 
+  const sortedTasks = [...filteredTasks].sort((a, b) => {
+    if (sortOrder === 'high-to-low') {
+      const priority = { High: 3, Medium: 2, Low: 1 }
+      return priority[b.priority] - priority[a.priority]
+    }
+
+    if (sortOrder === 'low-to-high') {
+      const priority = { High: 3, Medium: 2, Low: 1 }
+      return priority[a.priority] - priority[b.priority]
+    }
+
+    if (sortOrder === 'alphabetical') {
+      return a.title.localeCompare(b.title, undefined, {
+        sensitivity: 'base',
+      })
+    }
+
+    return 0
+  })
+
   return (
     <>
       <h2 id="task-count">
         {showFilterBar
-          ? `Showing ${filteredTasks.length} of ${tasks.length} tasks`
+          ? `Showing ${sortedTasks.length} of ${tasks.length} tasks`
           : countFormat === 'completed'
             ? `${completedCount} of ${tasks.length} completed`
             : `${tasks.length} Tasks`}
@@ -73,16 +100,18 @@ export default function TaskApp({
         <FilterBar
           filter={filter}
           onFilterChange={setFilter}
+          sortOrder={sortOrder}
+          onSortChange={setSortOrder}
         />
       )}
 
-      {showFilterBar && filteredTasks.length === 0 ? (
+      {showFilterBar && sortedTasks.length === 0 ? (
         <p id="filter-empty-message">
           No tasks match this filter
         </p>
       ) : (
         <TaskList
-          tasks={filteredTasks}
+          tasks={sortedTasks}
           onToggle={handleToggle}
           onDelete={onDelete}
         />
