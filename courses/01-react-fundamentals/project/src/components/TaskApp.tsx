@@ -34,6 +34,7 @@ export default function TaskApp({
 }: TaskAppProps) {
   const [filter, setFilter] = useState<Filter>('all')
   const [sortOrder, setSortOrder] = useState<SortOrder>('recent')
+  const [editingId, setEditingId] = useState<string | number | null>(null)
 
   const handleAddTask = (task: Record<string, unknown>) => {
     if (!setTasks) return
@@ -53,6 +54,27 @@ export default function TaskApp({
     )
   }
 
+  const handleUpdateTask = (
+    id: string | number,
+    updates: {
+      title: string
+      description: string
+      priority: string
+    }
+  ) => {
+    if (!setTasks) return
+
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id
+          ? { ...task, ...updates }
+          : task
+      )
+    )
+
+    setEditingId(null)
+  }
+
   const completedCount = tasks.filter((task) => task.completed).length
 
   const filteredTasks =
@@ -65,12 +87,14 @@ export default function TaskApp({
   const sortedTasks = [...filteredTasks].sort((a, b) => {
     if (sortOrder === 'high-to-low') {
       const priority = { High: 3, Medium: 2, Low: 1 }
-      return priority[b.priority] - priority[a.priority]
+      return priority[b.priority as keyof typeof priority] -
+        priority[a.priority as keyof typeof priority]
     }
 
     if (sortOrder === 'low-to-high') {
       const priority = { High: 3, Medium: 2, Low: 1 }
-      return priority[a.priority] - priority[b.priority]
+      return priority[a.priority as keyof typeof priority] -
+        priority[b.priority as keyof typeof priority]
     }
 
     if (sortOrder === 'alphabetical') {
@@ -114,6 +138,10 @@ export default function TaskApp({
           tasks={sortedTasks}
           onToggle={handleToggle}
           onDelete={onDelete}
+          editingId={editingId}
+          onStartEdit={setEditingId}
+          onCancelEdit={() => setEditingId(null)}
+          onUpdateTask={handleUpdateTask}
         />
       )}
     </>

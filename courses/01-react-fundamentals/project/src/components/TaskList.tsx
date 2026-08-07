@@ -16,6 +16,17 @@ interface TaskListProps {
   countText?: string
   onToggle?: (id: string | number) => void
   onDelete?: (id: string | number) => void
+  editingId?: string | number | null
+  onStartEdit?: (id: string | number) => void
+  onCancelEdit?: () => void
+  onUpdateTask?: (
+    id: string | number,
+    updates: {
+      title: string
+      description: string
+      priority: string
+    }
+  ) => void
 }
 
 const HARDCODED_TASKS: Task[] = [
@@ -46,6 +57,10 @@ export default function TaskList({
   tasks,
   onToggle,
   onDelete,
+  editingId,
+  onStartEdit,
+  onCancelEdit,
+  onUpdateTask,
 }: TaskListProps) {
   const list = tasks ?? HARDCODED_TASKS
 
@@ -61,6 +76,10 @@ export default function TaskList({
           completed={task.completed}
           onToggle={onToggle}
           onDelete={onDelete}
+          editingId={editingId}
+          onStartEdit={onStartEdit}
+          onCancelEdit={onCancelEdit}
+          onUpdateTask={onUpdateTask}
         />
       ))}
     </section>
