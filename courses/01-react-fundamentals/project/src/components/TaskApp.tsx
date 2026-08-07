@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 import TaskForm from './TaskForm'
 import TaskList, { type Task } from './TaskList'
@@ -35,7 +35,18 @@ export default function TaskApp({
   const [filter, setFilter] = useState<Filter>('all')
   const [sortOrder, setSortOrder] = useState<SortOrder>('recent')
   const [search, setSearch] = useState('')
+  const [debouncedSearch, setDebouncedSearch] = useState('')
   const [editingId, setEditingId] = useState<string | number | null>(null)
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      setDebouncedSearch(search)
+    }, 300)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [search])
 
   const handleAddTask = (task: Record<string, unknown>) => {
     if (!setTasks) return
@@ -85,7 +96,7 @@ export default function TaskApp({
         ? tasks.filter((task) => task.completed)
         : tasks
 
-  const searchText = search.trim().toLowerCase()
+  const searchText = debouncedSearch.trim().toLowerCase()
 
   const searchedTasks = searchText
     ? filteredTasks.filter(
@@ -124,16 +135,15 @@ export default function TaskApp({
   })
 
   const hasSearch = search.trim().length > 0
+  const isSearching = search !== debouncedSearch
 
   return (
     <>
-      <h2 id="task-count">
-        {showFilterBar
-          ? `Showing ${sortedTasks.length} of ${tasks.length} tasks`
-          : countFormat === 'completed'
-            ? `${completedCount} of ${tasks.length} completed`
-            : `${tasks.length} Tasks`}
-      </h2>
+      {showFilterBar
+        ? `Showing ${sortedTasks.length} of ${tasks.length} tasks`
+        : countFormat === 'completed'
+          ? `${completedCount} of ${tasks.length} completed`
+          : `${tasks.length} Tasks`}
 
       {showForm && (
         <TaskForm onAddTask={handleAddTask} />
@@ -148,6 +158,12 @@ export default function TaskApp({
           search={search}
           onSearchChange={setSearch}
         />
+      )}
+
+      {showFilterBar && isSearching && hasSearch && (
+        <p id="searching-indicator">
+          Searching...
+        </p>
       )}
 
       {showFilterBar && sortedTasks.length === 0 ? (
