@@ -34,6 +34,7 @@ export default function TaskApp({
 }: TaskAppProps) {
   const [filter, setFilter] = useState<Filter>('all')
   const [sortOrder, setSortOrder] = useState<SortOrder>('recent')
+  const [search, setSearch] = useState('')
   const [editingId, setEditingId] = useState<string | number | null>(null)
 
   const handleAddTask = (task: Record<string, unknown>) => {
@@ -84,17 +85,33 @@ export default function TaskApp({
         ? tasks.filter((task) => task.completed)
         : tasks
 
-  const sortedTasks = [...filteredTasks].sort((a, b) => {
+  const searchText = search.trim().toLowerCase()
+
+  const searchedTasks = searchText
+    ? filteredTasks.filter(
+        (task) =>
+          task.title.toLowerCase().includes(searchText) ||
+          task.description.toLowerCase().includes(searchText)
+      )
+    : filteredTasks
+
+  const sortedTasks = [...searchedTasks].sort((a, b) => {
     if (sortOrder === 'high-to-low') {
       const priority = { High: 3, Medium: 2, Low: 1 }
-      return priority[b.priority as keyof typeof priority] -
+
+      return (
+        priority[b.priority as keyof typeof priority] -
         priority[a.priority as keyof typeof priority]
+      )
     }
 
     if (sortOrder === 'low-to-high') {
       const priority = { High: 3, Medium: 2, Low: 1 }
-      return priority[a.priority as keyof typeof priority] -
+
+      return (
+        priority[a.priority as keyof typeof priority] -
         priority[b.priority as keyof typeof priority]
+      )
     }
 
     if (sortOrder === 'alphabetical') {
@@ -105,6 +122,8 @@ export default function TaskApp({
 
     return 0
   })
+
+  const hasSearch = search.trim().length > 0
 
   return (
     <>
@@ -126,12 +145,16 @@ export default function TaskApp({
           onFilterChange={setFilter}
           sortOrder={sortOrder}
           onSortChange={setSortOrder}
+          search={search}
+          onSearchChange={setSearch}
         />
       )}
 
       {showFilterBar && sortedTasks.length === 0 ? (
         <p id="filter-empty-message">
-          No tasks match this filter
+          {hasSearch
+            ? 'No tasks found'
+            : 'No tasks match this filter'}
         </p>
       ) : (
         <TaskList

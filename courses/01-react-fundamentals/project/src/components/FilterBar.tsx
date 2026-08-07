@@ -5,6 +5,8 @@ interface FilterBarProps {
   onSortChange: (
     sortOrder: 'recent' | 'high-to-low' | 'low-to-high' | 'alphabetical'
   ) => void
+  search: string
+  onSearchChange: (search: string) => void
 }
 
 export default function FilterBar({
@@ -12,9 +14,29 @@ export default function FilterBar({
   onFilterChange,
   sortOrder,
   onSortChange,
+  search,
+  onSearchChange,
 }: FilterBarProps) {
   return (
     <div id="filter-bar">
+      <input
+        id="search-input"
+        type="text"
+        value={search}
+        onChange={(event) => onSearchChange(event.target.value)}
+        placeholder="Search tasks"
+      />
+
+      {search && (
+        <button
+          id="clear-search"
+          type="button"
+          onClick={() => onSearchChange('')}
+        >
+          Clear search
+        </button>
+      )}
+
       <button
         type="button"
         data-active={filter === 'all'}
