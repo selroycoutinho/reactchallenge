@@ -1,9 +1,19 @@
 interface FilterBarProps {
   filter: 'all' | 'active' | 'completed'
   onFilterChange: (filter: 'all' | 'active' | 'completed') => void
-  sortOrder: 'recent' | 'high-to-low' | 'low-to-high' | 'alphabetical'
+  sortOrder:
+    | 'recent'
+    | 'high-to-low'
+    | 'low-to-high'
+    | 'alphabetical'
+    | 'due-date'
   onSortChange: (
-    sortOrder: 'recent' | 'high-to-low' | 'low-to-high' | 'alphabetical'
+    sortOrder:
+      | 'recent'
+      | 'high-to-low'
+      | 'low-to-high'
+      | 'alphabetical'
+      | 'due-date'
   ) => void
   search: string
   onSearchChange: (search: string) => void
@@ -91,6 +101,7 @@ export default function FilterBar({
               | 'high-to-low'
               | 'low-to-high'
               | 'alphabetical'
+              | 'due-date'
           )
         }
       >
@@ -98,6 +109,7 @@ export default function FilterBar({
         <option value="high-to-low">Priority: High to Low</option>
         <option value="low-to-high">Priority: Low to High</option>
         <option value="alphabetical">Alphabetical</option>
+        <option value="due-date">Due Date (Soonest First)</option>
       </select>
     </div>
   )

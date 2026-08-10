@@ -270,5 +270,28 @@
       "maintainability": 90,
       "overall": "The code is well-written and follows good practices, but there are some areas that could be improved for better maintainability and readability."
     }
+  },
+  {
+    "challengeId": "13-due-dates-and-sorting",
+    "challengeName": "Due Dates and Sorting",
+    "aiReview": {
+      "challengeId": "13-due-dates-and-sorting",
+      "timestamp": "2026-08-10T06:55:42.463Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and functional components makes the code more maintainable and efficient.",
+        "The code is well-documented with clear and concise comments."
+      ],
+      "improvements": [
+        "Some of the functions are quite long and complex, making them harder to read and understand. Consider breaking them down into smaller, more manageable functions.",
+        "There are some repeated code patterns, such as the sorting logic in the TaskApp component. Consider extracting these into a separate utility function to avoid duplication.",
+        "The use of magic numbers (e.g., 3 days for 'Due Soon') can make the code harder to understand. Consider defining these numbers as constants to make the code more readable."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and maintainable, but there are some areas for improvement to make it even more efficient and readable."
+    }
   }
 ]

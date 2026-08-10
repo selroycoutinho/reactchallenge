@@ -23,6 +23,7 @@ type SortOrder =
   | 'high-to-low'
   | 'low-to-high'
   | 'alphabetical'
+  | 'due-date'
 
 export default function TaskApp({
   tasks = [],
@@ -73,6 +74,7 @@ export default function TaskApp({
       title: string
       description: string
       priority: string
+      dueDate?: string
     }
   ) => {
     if (!setTasks) return
@@ -88,7 +90,9 @@ export default function TaskApp({
     setEditingId(null)
   }
 
-  const completedCount = tasks.filter((task) => task.completed).length
+  const completedCount = tasks.filter(
+    (task) => task.completed
+  ).length
 
   const categories = [
     ...new Set(
@@ -123,7 +127,11 @@ export default function TaskApp({
 
   const sortedTasks = [...searchedTasks].sort((a, b) => {
     if (sortOrder === 'high-to-low') {
-      const priority = { High: 3, Medium: 2, Low: 1 }
+      const priority = {
+        High: 3,
+        Medium: 2,
+        Low: 1,
+      }
 
       return (
         priority[b.priority as keyof typeof priority] -
@@ -132,7 +140,11 @@ export default function TaskApp({
     }
 
     if (sortOrder === 'low-to-high') {
-      const priority = { High: 3, Medium: 2, Low: 1 }
+      const priority = {
+        High: 3,
+        Medium: 2,
+        Low: 1,
+      }
 
       return (
         priority[a.priority as keyof typeof priority] -
@@ -144,6 +156,26 @@ export default function TaskApp({
       return a.title.localeCompare(b.title, undefined, {
         sensitivity: 'base',
       })
+    }
+
+    if (sortOrder === 'due-date') {
+      const aTime = a.dueDate
+        ? new Date(a.dueDate).getTime()
+        : Number.POSITIVE_INFINITY
+
+      const bTime = b.dueDate
+        ? new Date(b.dueDate).getTime()
+        : Number.POSITIVE_INFINITY
+
+      const safeATime = Number.isNaN(aTime)
+        ? Number.POSITIVE_INFINITY
+        : aTime
+
+      const safeBTime = Number.isNaN(bTime)
+        ? Number.POSITIVE_INFINITY
+        : bTime
+
+      return safeATime - safeBTime
     }
 
     return 0

@@ -14,6 +14,7 @@ export default function TaskForm({
   const [priority, setPriority] = useState('Low')
   const [category, setCategory] = useState('General')
   const [tags, setTags] = useState('')
+  const [dueDate, setDueDate] = useState('')
   const [error, setError] = useState('')
 
   const availableCategories = [
@@ -44,6 +45,7 @@ export default function TaskForm({
       completed: false,
       category,
       tags: parsedTags,
+      ...(dueDate ? { dueDate } : {}),
     })
 
     setTitle('')
@@ -51,6 +53,7 @@ export default function TaskForm({
     setPriority('Low')
     setCategory('General')
     setTags('')
+    setDueDate('')
   }
 
   return (
@@ -96,6 +99,13 @@ export default function TaskForm({
         placeholder="Tags (comma-separated)"
         value={tags}
         onChange={(e) => setTags(e.target.value)}
+      />
+
+      <input
+        id="task-due-date-input"
+        type="date"
+        value={dueDate}
+        onChange={(e) => setDueDate(e.target.value)}
       />
 
       <button type="submit">Add Task</button>
