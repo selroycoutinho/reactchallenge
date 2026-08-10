@@ -1,3 +1,6 @@
+import FormInput from './FormInput'
+import Button from './Button'
+
 interface FilterBarProps {
   filter: 'all' | 'active' | 'completed'
   onFilterChange: (filter: 'all' | 'active' | 'completed') => void
@@ -35,7 +38,7 @@ export default function FilterBar({
 }: FilterBarProps) {
   return (
     <div>
-      <input
+      <FormInput
         id="search-input"
         type="text"
         value={search}
@@ -44,38 +47,39 @@ export default function FilterBar({
       />
 
       {search && (
-        <button
+        <Button
           id="clear-search"
           type="button"
+          variant="secondary"
           onClick={() => onSearchChange('')}
         >
           Clear search
-        </button>
+        </Button>
       )}
 
-      <button
+      <Button
         type="button"
-        data-active={filter === 'all'}
+        variant={filter === 'all' ? 'primary' : 'secondary'}
         onClick={() => onFilterChange('all')}
       >
         All
-      </button>
+      </Button>
 
-      <button
+      <Button
         type="button"
-        data-active={filter === 'active'}
+        variant={filter === 'active' ? 'primary' : 'secondary'}
         onClick={() => onFilterChange('active')}
       >
         Active
-      </button>
+      </Button>
 
-      <button
+      <Button
         type="button"
-        data-active={filter === 'completed'}
+        variant={filter === 'completed' ? 'primary' : 'secondary'}
         onClick={() => onFilterChange('completed')}
       >
         Completed
-      </button>
+      </Button>
 
       <select
         id="category-filter"

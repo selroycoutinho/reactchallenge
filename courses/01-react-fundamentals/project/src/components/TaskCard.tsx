@@ -1,4 +1,8 @@
 import { useState } from 'react'
+import Button from './Button'
+import Badge from './Badge'
+import FormInput from './FormInput'
+import StatusIndicator, { type TaskStatus } from './StatusIndicator'
 
 interface TaskCardProps {
   title: string
@@ -23,6 +27,12 @@ interface TaskCardProps {
       dueDate?: string
     }
   ) => void
+}
+
+const STATUS_KEY_MAP: Record<string, TaskStatus> = {
+  Overdue: 'overdue',
+  'Due Today': 'due-today',
+  'Due Soon': 'due-soon',
 }
 
 export default function TaskCard({
@@ -128,17 +138,19 @@ export default function TaskCard({
           border: '1px solid #ccc',
         }}
       >
-        <input
-          type="text"
+        <FormInput
+          id="edit-task-title"
           value={editTitle}
           onChange={(event) => setEditTitle(event.target.value)}
-          aria-label="Task title"
+          ariaLabel="Task title"
         />
 
-        <textarea
+        <FormInput
+          id="edit-task-description"
+          type="textarea"
           value={editDescription}
           onChange={(event) => setEditDescription(event.target.value)}
-          aria-label="Task description"
+          ariaLabel="Task description"
         />
 
         <select
@@ -151,20 +163,21 @@ export default function TaskCard({
           <option value="Low">Low</option>
         </select>
 
-        <input
+        <FormInput
+          id="edit-task-due-date"
           type="date"
           value={editDueDate}
           onChange={(event) => setEditDueDate(event.target.value)}
-          aria-label="Task due date"
+          ariaLabel="Task due date"
         />
 
-        <button type="button" onClick={handleSave}>
+        <Button type="button" variant="primary" onClick={handleSave}>
           Save
-        </button>
+        </Button>
 
-        <button type="button" onClick={onCancelEdit}>
+        <Button type="button" variant="secondary" onClick={onCancelEdit}>
           Cancel
-        </button>
+        </Button>
       </article>
     )
   }
@@ -205,25 +218,17 @@ export default function TaskCard({
         {description}
       </p>
 
-      <p>{priority}</p>
+      <Badge variant="priority">{priority}</Badge>
 
-      <p id="task-category">{category || 'General'}</p>
+      <Badge id="task-category" variant="category">
+        {category || 'General'}
+      </Badge>
 
       <div id="task-tags">
         {tags.map((tag) => (
-          <span
-            key={tag}
-            data-tag={tag}
-            style={{
-              display: 'inline-block',
-              padding: '3px 8px',
-              marginRight: '5px',
-              borderRadius: '10px',
-              backgroundColor: '#eee',
-            }}
-          >
+          <Badge key={tag} variant="tag">
             {tag}
-          </span>
+          </Badge>
         ))}
       </div>
 
@@ -237,20 +242,22 @@ export default function TaskCard({
           }}
         >
           Due: {new Date(dueDate).toLocaleDateString()}
-          {dueDateStatus && ` — ${dueDateStatus}`}
+          {dueDateStatus && (
+            <StatusIndicator status={STATUS_KEY_MAP[dueDateStatus]} />
+          )}
         </p>
       )}
 
       {onStartEdit && (
-        <button type="button" onClick={handleEdit}>
+        <Button type="button" variant="secondary" onClick={handleEdit}>
           Edit
-        </button>
+        </Button>
       )}
 
       {onDelete && (
-        <button type="button" onClick={handleDelete}>
+        <Button type="button" variant="danger" onClick={handleDelete}>
           Delete
-        </button>
+        </Button>
       )}
     </article>
   )

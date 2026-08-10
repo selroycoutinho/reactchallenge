@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import FormInput from './FormInput'
+import Button from './Button'
 
 interface TaskFormProps {
   onAddTask?: (task: Record<string, unknown>) => void
@@ -58,7 +60,7 @@ export default function TaskForm({
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <FormInput
         id="task-title"
         type="text"
         placeholder="Title"
@@ -66,7 +68,9 @@ export default function TaskForm({
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      <textarea
+      <FormInput
+        id="task-description"
+        type="textarea"
         placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
@@ -93,7 +97,7 @@ export default function TaskForm({
         ))}
       </select>
 
-      <input
+      <FormInput
         id="task-tags-input"
         type="text"
         placeholder="Tags (comma-separated)"
@@ -101,14 +105,16 @@ export default function TaskForm({
         onChange={(e) => setTags(e.target.value)}
       />
 
-      <input
+      <FormInput
         id="task-due-date-input"
         type="date"
         value={dueDate}
         onChange={(e) => setDueDate(e.target.value)}
       />
 
-      <button type="submit">Add Task</button>
+      <Button type="submit" variant="primary">
+        Add Task
+      </Button>
 
       {error && (
         <p id="task-form-error">
