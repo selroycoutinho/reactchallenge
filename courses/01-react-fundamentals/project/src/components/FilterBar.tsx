@@ -7,6 +7,9 @@ interface FilterBarProps {
   ) => void
   search: string
   onSearchChange: (search: string) => void
+  category: string
+  categories: string[]
+  onCategoryChange: (category: string) => void
 }
 
 export default function FilterBar({
@@ -16,9 +19,12 @@ export default function FilterBar({
   onSortChange,
   search,
   onSearchChange,
+  category,
+  categories,
+  onCategoryChange,
 }: FilterBarProps) {
   return (
-    <div id="filter-bar">
+    <div>
       <input
         id="search-input"
         type="text"
@@ -60,6 +66,20 @@ export default function FilterBar({
       >
         Completed
       </button>
+
+      <select
+        id="category-filter"
+        value={category}
+        onChange={(event) => onCategoryChange(event.target.value)}
+      >
+        <option value="">All categories</option>
+
+        {categories.map((item) => (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        ))}
+      </select>
 
       <select
         id="sort-order"

@@ -73,6 +73,8 @@ export default function TaskList({
           title={task.title}
           description={task.description}
           priority={task.priority}
+          category={task.category}
+          tags={task.tags}
           completed={task.completed}
           onToggle={onToggle}
           onDelete={onDelete}

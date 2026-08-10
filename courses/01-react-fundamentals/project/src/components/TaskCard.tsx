@@ -4,6 +4,8 @@ interface TaskCardProps {
   title: string
   description: string
   priority: string
+  category?: string
+  tags?: string[]
   completed?: boolean
   onToggle?: (id: string | number) => void
   onDelete?: (id: string | number) => void
@@ -25,6 +27,8 @@ export default function TaskCard({
   title,
   description,
   priority,
+  category = 'General',
+  tags = [],
   completed = false,
   onToggle,
   onDelete,
@@ -67,7 +71,16 @@ export default function TaskCard({
 
   if (isEditing) {
     return (
-      <article id="task-card">
+      <article
+        id="task-card"
+        data-completed={completed}
+        style={{
+          backgroundColor: completed ? '#e8f5e9' : '#fff',
+          padding: '10px',
+          marginBottom: '10px',
+          border: '1px solid #ccc',
+        }}
+      >
         <input
           type="text"
           value={editTitle}
@@ -138,6 +151,26 @@ export default function TaskCard({
       </p>
 
       <p>{priority}</p>
+
+      <p id="task-category">{category || 'General'}</p>
+
+      <div id="task-tags">
+        {tags.map((tag) => (
+          <span
+            key={tag}
+            data-tag={tag}
+            style={{
+              display: 'inline-block',
+              padding: '3px 8px',
+              marginRight: '5px',
+              borderRadius: '10px',
+              backgroundColor: '#eee',
+            }}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
 
       {onStartEdit && (
         <button type="button" onClick={handleEdit}>

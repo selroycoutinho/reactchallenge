@@ -36,6 +36,7 @@ export default function TaskApp({
   const [sortOrder, setSortOrder] = useState<SortOrder>('recent')
   const [search, setSearch] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
+  const [category, setCategory] = useState('')
   const [editingId, setEditingId] = useState<string | number | null>(null)
 
   useEffect(() => {
@@ -89,22 +90,36 @@ export default function TaskApp({
 
   const completedCount = tasks.filter((task) => task.completed).length
 
-  const filteredTasks =
+  const categories = [
+    ...new Set(
+      tasks
+        .map((task) => task.category || 'General')
+        .filter(Boolean)
+    ),
+  ]
+
+  const statusFilteredTasks =
     filter === 'active'
       ? tasks.filter((task) => !task.completed)
       : filter === 'completed'
         ? tasks.filter((task) => task.completed)
         : tasks
 
+  const categoryFilteredTasks = category
+    ? statusFilteredTasks.filter(
+        (task) => (task.category || 'General') === category
+      )
+    : statusFilteredTasks
+
   const searchText = debouncedSearch.trim().toLowerCase()
 
   const searchedTasks = searchText
-    ? filteredTasks.filter(
+    ? categoryFilteredTasks.filter(
         (task) =>
           task.title.toLowerCase().includes(searchText) ||
           task.description.toLowerCase().includes(searchText)
       )
-    : filteredTasks
+    : categoryFilteredTasks
 
   const sortedTasks = [...searchedTasks].sort((a, b) => {
     if (sortOrder === 'high-to-low') {
@@ -146,7 +161,10 @@ export default function TaskApp({
           : `${tasks.length} Tasks`}
 
       {showForm && (
-        <TaskForm onAddTask={handleAddTask} />
+        <TaskForm
+          onAddTask={handleAddTask}
+          categories={categories}
+        />
       )}
 
       {showFilterBar && (
@@ -157,6 +175,9 @@ export default function TaskApp({
           onSortChange={setSortOrder}
           search={search}
           onSearchChange={setSearch}
+          category={category}
+          categories={categories}
+          onCategoryChange={setCategory}
         />
       )}
 
