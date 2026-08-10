@@ -4,6 +4,7 @@ import TaskForm from './TaskForm'
 import TaskList, { type Task } from './TaskList'
 import FilterBar from './FilterBar'
 import StatsPanel from './StatsPanel'
+import { useTheme } from '../contexts/ThemeContext'
 
 interface TaskAppProps {
   tasks?: Task[]
@@ -35,6 +36,8 @@ export default function TaskApp({
   showStatsPanel,
   onDelete,
 }: TaskAppProps) {
+  const { theme, toggleTheme } = useTheme()
+
   const [filter, setFilter] = useState<Filter>('all')
   const [sortOrder, setSortOrder] = useState<SortOrder>('recent')
   const [search, setSearch] = useState('')
@@ -108,8 +111,8 @@ export default function TaskApp({
     filter === 'active'
       ? tasks.filter((task) => !task.completed)
       : filter === 'completed'
-        ? tasks.filter((task) => task.completed)
-        : tasks
+      ? tasks.filter((task) => task.completed)
+      : tasks
 
   const categoryFilteredTasks = category
     ? statusFilteredTasks.filter(
@@ -187,12 +190,42 @@ export default function TaskApp({
   const isSearching = search !== debouncedSearch
 
   return (
-    <>
+    <div
+      data-theme={theme}
+      style={{
+        minHeight: '100vh',
+        backgroundColor: theme === 'dark' ? '#111827' : '#fff',
+        color: theme === 'dark' ? '#f9fafb' : '#111',
+        padding: '1rem',
+      }}
+    >
+      <button
+        id="theme-toggle"
+        type="button"
+        onClick={toggleTheme}
+        aria-label={`Switch to ${
+          theme === 'light' ? 'dark' : 'light'
+        } mode`}
+        style={{
+          padding: '8px 14px',
+          marginBottom: '1rem',
+          borderRadius: '4px',
+          border: theme === 'dark'
+            ? '1px solid #555'
+            : '1px solid #ccc',
+          backgroundColor: theme === 'dark' ? '#374151' : '#fff',
+          color: theme === 'dark' ? '#fff' : '#111',
+          cursor: 'pointer',
+        }}
+      >
+        {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+      </button>
+
       {showFilterBar
         ? `Showing ${sortedTasks.length} of ${tasks.length} tasks`
         : countFormat === 'completed'
-          ? `${completedCount} of ${tasks.length} completed`
-          : `${tasks.length} Tasks`}
+        ? `${completedCount} of ${tasks.length} completed`
+        : `${tasks.length} Tasks`}
 
       {showStatsPanel && <StatsPanel tasks={tasks} />}
 
@@ -240,6 +273,6 @@ export default function TaskApp({
           onUpdateTask={handleUpdateTask}
         />
       )}
-    </>
+    </div>
   )
 }

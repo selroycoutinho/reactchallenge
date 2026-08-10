@@ -132,10 +132,11 @@ export default function TaskCard({
         id="task-card"
         data-completed={completed}
         style={{
-          backgroundColor: completed ? '#e8f5e9' : '#fff',
           padding: '10px',
           marginBottom: '10px',
-          border: '1px solid #ccc',
+          border: '1px solid var(--border-color)',
+          backgroundColor: 'var(--card-bg)',
+          color: 'var(--text-color)',
         }}
       >
         <FormInput
@@ -188,10 +189,15 @@ export default function TaskCard({
       data-completed={completed}
       data-overdue={isOverdue ? 'true' : 'false'}
       style={{
-        backgroundColor: completed ? '#e8f5e9' : '#fff',
+        backgroundColor: completed
+          ? 'var(--completed-bg, #e8f5e9)'
+          : 'var(--card-bg)',
+        color: 'var(--text-color)',
         padding: '10px',
         marginBottom: '10px',
-        border: isOverdue ? '2px solid red' : '1px solid #ccc',
+        border: isOverdue
+          ? '2px solid red'
+          : '1px solid var(--border-color)',
       }}
     >
       {onToggle && (
