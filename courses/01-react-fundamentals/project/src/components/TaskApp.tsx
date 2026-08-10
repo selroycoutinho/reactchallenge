@@ -3,6 +3,7 @@ import type { Dispatch, SetStateAction } from 'react'
 import TaskForm from './TaskForm'
 import TaskList, { type Task } from './TaskList'
 import FilterBar from './FilterBar'
+import StatsPanel from './StatsPanel'
 
 interface TaskAppProps {
   tasks?: Task[]
@@ -31,6 +32,7 @@ export default function TaskApp({
   showForm,
   countFormat,
   showFilterBar,
+  showStatsPanel,
   onDelete,
 }: TaskAppProps) {
   const [filter, setFilter] = useState<Filter>('all')
@@ -191,6 +193,8 @@ export default function TaskApp({
         : countFormat === 'completed'
           ? `${completedCount} of ${tasks.length} completed`
           : `${tasks.length} Tasks`}
+
+      {showStatsPanel && <StatsPanel tasks={tasks} />}
 
       {showForm && (
         <TaskForm

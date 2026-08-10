@@ -293,5 +293,28 @@
       "maintainability": 90,
       "overall": "The code is well-structured and maintainable, but there are some areas for improvement to make it even more efficient and readable."
     }
+  },
+  {
+    "challengeId": "14-task-statistics-dashboard",
+    "challengeName": "Task Statistics Dashboard",
+    "aiReview": {
+      "challengeId": "14-task-statistics-dashboard",
+      "timestamp": "2026-08-10T09:09:16.105Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Effective use of memoization with `useMemo` to optimize performance",
+        "Clear and concise code structure with separate sections for different statistics",
+        "Use of TypeScript type annotations to ensure type safety"
+      ],
+      "improvements": [
+        "Consider using a more robust method for calculating overdue tasks, such as using a library like `date-fns`",
+        "Some variable names could be more descriptive, such as `totalTasks` instead of `total`",
+        "The `StatsPanel` component could benefit from a more robust error handling mechanism for cases where the `tasks` prop is not provided"
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The code is well-structured and effectively uses memoization to optimize performance. However, there are some areas for improvement, such as more robust error handling and more descriptive variable names. With some minor adjustments, this code could be even more maintainable and efficient."
+    }
   }
 ]
