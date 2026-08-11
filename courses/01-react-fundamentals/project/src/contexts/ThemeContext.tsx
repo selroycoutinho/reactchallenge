@@ -2,9 +2,9 @@ import {
   createContext,
   useContext,
   useEffect,
-  useState,
   type ReactNode,
 } from 'react'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export type Theme = 'light' | 'dark'
 
@@ -17,14 +17,12 @@ export interface ThemeContextValue {
 export const ThemeContext = createContext<ThemeContextValue | null>(null)
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem('task-app-theme')
-
-    return savedTheme === 'dark' ? 'dark' : 'light'
-  })
+  const [theme, setTheme] = useLocalStorage<Theme>(
+    'task-app-theme',
+    'light'
+  )
 
   useEffect(() => {
-    localStorage.setItem('task-app-theme', theme)
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
 
