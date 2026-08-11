@@ -8,6 +8,7 @@ import TaskForm from './TaskForm'
 import TaskList, { type Task } from './TaskList'
 import FilterBar from './FilterBar'
 import StatsPanel from './StatsPanel'
+import ErrorBoundary from './ErrorBoundary'
 import { useTheme } from '../contexts/ThemeContext'
 import {
   ADD_TASK,
@@ -340,15 +341,17 @@ function TaskApp({
             : 'No tasks match this filter'}
         </p>
       ) : (
-        <TaskList
-          tasks={sortedTasks}
-          onToggle={handleToggle}
-          onDelete={onDelete}
-          editingId={editingId}
-          onStartEdit={handleStartEdit}
-          onCancelEdit={handleCancelEdit}
-          onUpdateTask={handleUpdateTask}
-        />
+        <ErrorBoundary>
+          <TaskList
+            tasks={sortedTasks}
+            onToggle={handleToggle}
+            onDelete={onDelete}
+            editingId={editingId}
+            onStartEdit={handleStartEdit}
+            onCancelEdit={handleCancelEdit}
+            onUpdateTask={handleUpdateTask}
+          />
+        </ErrorBoundary>
       )}
     </div>
   )

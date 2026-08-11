@@ -5,13 +5,13 @@ export function useLocalStorage<T>(
   initialValue: T
 ): [T, (value: T | ((prev: T) => T)) => void] {
   const [value, setValue] = useState<T>(() => {
-    const savedValue = localStorage.getItem(key)
-
-    if (!savedValue) {
-      return initialValue
-    }
-
     try {
+      const savedValue = localStorage.getItem(key)
+
+      if (!savedValue) {
+        return initialValue
+      }
+
       return JSON.parse(savedValue) as T
     } catch {
       return initialValue
@@ -20,7 +20,10 @@ export function useLocalStorage<T>(
 
   useEffect(() => {
     try {
-      localStorage.setItem(key, JSON.stringify(value))
+      localStorage.setItem(
+        key,
+        JSON.stringify(value)
+      )
     } catch {
       // Ignore localStorage errors
     }
