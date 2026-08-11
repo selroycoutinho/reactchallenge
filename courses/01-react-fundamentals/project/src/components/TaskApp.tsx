@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react'
-import type { Dispatch, SetStateAction } from 'react'
 import TaskForm from './TaskForm'
 import TaskList, { type Task } from './TaskList'
 import FilterBar from './FilterBar'
 import StatsPanel from './StatsPanel'
 import { useTheme } from '../contexts/ThemeContext'
+import {
+  ADD_TASK,
+  TOGGLE_TASK,
+  UPDATE_TASK,
+} from '../reducers/taskReducer'
 
 interface TaskAppProps {
   tasks?: Task[]
-  setTasks?: Dispatch<SetStateAction<Task[]>>
-  dispatch?: (action: { type: string; payload?: unknown }) => void
+  dispatch?: (action: {
+    type: string
+    payload?: unknown
+  }) => void
   showForm?: boolean
   countFormat?: string
   showFilterBar?: boolean
@@ -29,7 +35,7 @@ type SortOrder =
 
 export default function TaskApp({
   tasks = [],
-  setTasks,
+  dispatch,
   showForm,
   countFormat,
   showFilterBar,
@@ -56,21 +62,21 @@ export default function TaskApp({
   }, [search])
 
   const handleAddTask = (task: Record<string, unknown>) => {
-    if (!setTasks) return
+    if (!dispatch) return
 
-    setTasks((prev) => [...prev, task as Task])
+    dispatch({
+      type: ADD_TASK,
+      payload: task as Task,
+    })
   }
 
   const handleToggle = (id: string | number) => {
-    if (!setTasks) return
+    if (!dispatch) return
 
-    setTasks((prev) =>
-      prev.map((task) =>
-        task.id === id
-          ? { ...task, completed: !task.completed }
-          : task
-      )
-    )
+    dispatch({
+      type: TOGGLE_TASK,
+      payload: id,
+    })
   }
 
   const handleUpdateTask = (
@@ -82,15 +88,15 @@ export default function TaskApp({
       dueDate?: string
     }
   ) => {
-    if (!setTasks) return
+    if (!dispatch) return
 
-    setTasks((prev) =>
-      prev.map((task) =>
-        task.id === id
-          ? { ...task, ...updates }
-          : task
-      )
-    )
+    dispatch({
+      type: UPDATE_TASK,
+      payload: {
+        id,
+        ...updates,
+      },
+    })
 
     setEditingId(null)
   }
@@ -210,9 +216,10 @@ export default function TaskApp({
           padding: '8px 14px',
           marginBottom: '1rem',
           borderRadius: '4px',
-          border: theme === 'dark'
-            ? '1px solid #555'
-            : '1px solid #ccc',
+          border:
+            theme === 'dark'
+              ? '1px solid #555'
+              : '1px solid #ccc',
           backgroundColor: theme === 'dark' ? '#374151' : '#fff',
           color: theme === 'dark' ? '#fff' : '#111',
           cursor: 'pointer',

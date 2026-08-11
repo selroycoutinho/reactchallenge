@@ -5990,5 +5990,286 @@
       "maintainability": 90,
       "overall": "The code is well-structured and easy to follow, with a good use of TypeScript and functional components. However, there are some areas for improvement in terms of error handling and code optimization."
     }
+  },
+  {
+    "challengeId": "18-usereducer-complex-state",
+    "challengeName": "useReducer - Complex State Management",
+    "timestamp": "2026-08-11T06:34:12.516Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 90,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 88
+    },
+    "totalScore": 96.7,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 18: useReducer - Complex State Management"
+              ],
+              "fullName": " Challenge 18: useReducer - Complex State Management App should render",
+              "status": "passed",
+              "title": "App should render",
+              "duration": 97,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 18: useReducer - Complex State Management"
+              ],
+              "fullName": " Challenge 18: useReducer - Complex State Management TaskList should render tasks",
+              "status": "passed",
+              "title": "TaskList should render tasks",
+              "duration": 19,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1786430059379,
+          "endTime": 1786430059495,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/seema/Desktop/reactchallenge/challenge-engine-react/courses/01-react-fundamentals/project/tests/challenge-18.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 90,
+      "passed": false,
+      "totalIssues": 1,
+      "errors": 1,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\src\\App.tsx",
+          "messages": [
+            {
+              "ruleId": "@typescript-eslint/no-unused-vars",
+              "severity": 2,
+              "message": "'TaskAction' is defined but never used.",
+              "line": 14,
+              "column": 8,
+              "nodeType": "Identifier",
+              "messageId": "unusedVar",
+              "endLine": 14,
+              "endColumn": 18
+            }
+          ],
+          "suppressedMessages": [],
+          "errorCount": 1,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "source": "import './App.css'\r\nimport { useEffect, useReducer } from 'react'\r\nimport { BrowserRouter, Routes, Route } from 'react-router-dom'\r\nimport ChallengeList from './components/ChallengeList'\r\nimport TaskList from './components/TaskList'\r\nimport TaskApp from './components/TaskApp'\r\nimport TaskDetailPage from './components/TaskDetailPage'\r\nimport FetchDemoView from './components/FetchDemoView'\r\nimport { ThemeProvider } from './contexts/ThemeContext'\r\nimport { useLocalStorage } from './hooks/useLocalStorage'\r\nimport {\r\n  DELETE_TASK,\r\n  taskReducer,\r\n  type TaskAction,\r\n} from './reducers/taskReducer'\r\nimport type { Task } from './components/TaskList'\r\n\r\nconst INITIAL_TASKS: Task[] = [\r\n  {\r\n    id: 1,\r\n    title: 'First Task',\r\n    description: 'Description one',\r\n    priority: 'High',\r\n    completed: false,\r\n    category: 'General',\r\n    tags: [],\r\n  },\r\n  {\r\n    id: 2,\r\n    title: 'Second Task',\r\n    description: 'Description two',\r\n    priority: 'Medium',\r\n    completed: false,\r\n    category: 'General',\r\n    tags: [],\r\n  },\r\n  {\r\n    id: 3,\r\n    title: 'Third Task',\r\n    description: 'Description three',\r\n    priority: 'Low',\r\n    completed: false,\r\n    category: 'General',\r\n    tags: [],\r\n  },\r\n  {\r\n    id: 4,\r\n    title: 'Fourth Task',\r\n    description: 'Description four',\r\n    priority: 'Medium',\r\n    completed: false,\r\n    category: 'General',\r\n    tags: [],\r\n  },\r\n  {\r\n    id: 5,\r\n    title: 'Fifth Task',\r\n    description: 'Description five',\r\n    priority: 'High',\r\n    completed: false,\r\n    category: 'General',\r\n    tags: [],\r\n  },\r\n]\r\n\r\nfunction AppContent() {\r\n  const [storedTasks, setStoredTasks] = useLocalStorage<Task[]>(\r\n    'task-app-tasks',\r\n    INITIAL_TASKS\r\n  )\r\n\r\n  const [tasks, dispatch] = useReducer(\r\n    taskReducer,\r\n    storedTasks\r\n  )\r\n\r\n  useEffect(() => {\r\n    setStoredTasks(tasks)\r\n  }, [tasks, setStoredTasks])\r\n\r\n  const handleDelete = (id: string | number) => {\r\n    if (window.confirm('Are you sure?')) {\r\n      dispatch({\r\n        type: DELETE_TASK,\r\n        payload: id,\r\n      })\r\n    }\r\n  }\r\n\r\n  return (\r\n    <BrowserRouter>\r\n      <div className=\"App\">\r\n        <main>\r\n          <Routes>\r\n            <Route path=\"/\" element={<ChallengeList />} />\r\n\r\n            <Route\r\n              path=\"/challenge/01-static-task-display\"\r\n              element={<TaskList />}\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/02-dynamic-task-rendering\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm={false}\r\n                  countFormat=\"tasks\"\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/03-adding-new-tasks\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/04-task-completion-toggle\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"completed\"\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/05-task-deletion\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                  onDelete={handleDelete}\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/06-task-filtering\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                  showFilterBar\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/07-priority-based-sorting\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                  showFilterBar\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/08-task-editing\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/09-search-functionality\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                  showFilterBar\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/10-useeffect-local-storage\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/11-useeffect-debounced-search\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                  showFilterBar\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/12-categories-and-tags\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                  showFilterBar\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/13-due-dates-and-sorting\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                  showFilterBar\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/14-task-statistics-dashboard\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                  showStatsPanel\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/15-component-organization\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/16-context-api-theme\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/17-custom-hook-uselocalstorage\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/18-usereducer-complex-state\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/19-performance-optimization\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/20-error-boundaries\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/21-react-router\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                  linkToTaskDetail\r\n                />\r\n              }\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/21-react-router/task/:id\"\r\n              element={<TaskDetailPage />}\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/22-data-fetching\"\r\n              element={<FetchDemoView />}\r\n            />\r\n\r\n            <Route\r\n              path=\"/challenge/23-useref-focus-management\"\r\n              element={\r\n                <TaskApp\r\n                  tasks={tasks}\r\n                  dispatch={dispatch}\r\n                  showForm\r\n                  countFormat=\"tasks\"\r\n                  showFilterBar\r\n                />\r\n              }\r\n            />\r\n          </Routes>\r\n        </main>\r\n      </div>\r\n    </BrowserRouter>\r\n  )\r\n}\r\n\r\nfunction App() {\r\n  return (\r\n    <ThemeProvider>\r\n      <AppContent />\r\n    </ThemeProvider>\r\n  )\r\n}\r\n\r\nexport default App",
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\src\\components\\TaskApp.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\01-react-fundamentals\\project\\src\\reducers\\taskReducer.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "functionalComponent",
+        "useReducer"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/App.tsx",
+          "patternsFound": [
+            "functionalComponent",
+            "useReducer"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/reducers/taskReducer.ts",
+          "patternsFound": [],
+          "patternsMissing": [
+            "functionalComponent",
+            "useReducer"
+          ]
+        },
+        {
+          "file": "src/components/TaskApp.tsx",
+          "patternsFound": [
+            "functionalComponent"
+          ],
+          "patternsMissing": [
+            "useReducer"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-18.spec.ts",
+          "file": "challenge-18.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 18: useReducer - E2E",
+              "file": "challenge-18.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should display task list",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 912,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-11T06:34:32.363Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "50842316024f411078d2-dce201608bcba5c43bc9",
+                  "file": "challenge-18.spec.ts",
+                  "line": 8,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "18-usereducer-complex-state",
+      "timestamp": "2026-08-11T06:34:33.992Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and functional components makes the code more maintainable and efficient.",
+        "The reducer function is well-organized and easy to understand."
+      ],
+      "improvements": [
+        "Some of the action creators could be extracted into separate functions to make the code more modular and reusable.",
+        "The use of `window.setTimeout` and `window.clearTimeout` in the `useEffect` hook could be avoided by using a more modern approach, such as `useDebounce`.",
+        "The `taskReducer` function could be made more concise by using the spread operator and array methods to simplify the update logic."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-organized and maintainable, but there are some opportunities for improvement to make it even more efficient and scalable. With some refactoring and optimization, the code could reach a score of 95 or higher."
+    },
+    "aiResults": {
+      "challengeId": "18-usereducer-complex-state",
+      "timestamp": "2026-08-11T06:34:33.992Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and functional components makes the code more maintainable and efficient.",
+        "The reducer function is well-organized and easy to understand."
+      ],
+      "improvements": [
+        "Some of the action creators could be extracted into separate functions to make the code more modular and reusable.",
+        "The use of `window.setTimeout` and `window.clearTimeout` in the `useEffect` hook could be avoided by using a more modern approach, such as `useDebounce`.",
+        "The `taskReducer` function could be made more concise by using the spread operator and array methods to simplify the update logic."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-organized and maintainable, but there are some opportunities for improvement to make it even more efficient and scalable. With some refactoring and optimization, the code could reach a score of 95 or higher."
+    }
   }
 ]
