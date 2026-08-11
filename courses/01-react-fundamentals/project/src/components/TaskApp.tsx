@@ -1,4 +1,9 @@
-import { useEffect, useState } from 'react'
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import TaskForm from './TaskForm'
 import TaskList, { type Task } from './TaskList'
 import FilterBar from './FilterBar'
@@ -33,7 +38,7 @@ type SortOrder =
   | 'alphabetical'
   | 'due-date'
 
-export default function TaskApp({
+function TaskApp({
   tasks = [],
   dispatch,
   showForm,
@@ -45,11 +50,14 @@ export default function TaskApp({
   const { theme, toggleTheme } = useTheme()
 
   const [filter, setFilter] = useState<Filter>('all')
-  const [sortOrder, setSortOrder] = useState<SortOrder>('recent')
+  const [sortOrder, setSortOrder] =
+    useState<SortOrder>('recent')
   const [search, setSearch] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState('')
   const [category, setCategory] = useState('')
-  const [editingId, setEditingId] = useState<string | number | null>(null)
+  const [editingId, setEditingId] = useState<
+    string | number | null
+  >(null)
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
@@ -61,136 +69,187 @@ export default function TaskApp({
     }
   }, [search])
 
-  const handleAddTask = (task: Record<string, unknown>) => {
-    if (!dispatch) return
+  const handleAddTask = useCallback(
+    (task: Record<string, unknown>) => {
+      if (!dispatch) return
 
-    dispatch({
-      type: ADD_TASK,
-      payload: task as Task,
-    })
-  }
-
-  const handleToggle = (id: string | number) => {
-    if (!dispatch) return
-
-    dispatch({
-      type: TOGGLE_TASK,
-      payload: id,
-    })
-  }
-
-  const handleUpdateTask = (
-    id: string | number,
-    updates: {
-      title: string
-      description: string
-      priority: string
-      dueDate?: string
-    }
-  ) => {
-    if (!dispatch) return
-
-    dispatch({
-      type: UPDATE_TASK,
-      payload: {
-        id,
-        ...updates,
-      },
-    })
-
-    setEditingId(null)
-  }
-
-  const completedCount = tasks.filter(
-    (task) => task.completed
-  ).length
-
-  const categories = [
-    ...new Set(
-      tasks
-        .map((task) => task.category || 'General')
-        .filter(Boolean)
-    ),
-  ]
-
-  const statusFilteredTasks =
-    filter === 'active'
-      ? tasks.filter((task) => !task.completed)
-      : filter === 'completed'
-      ? tasks.filter((task) => task.completed)
-      : tasks
-
-  const categoryFilteredTasks = category
-    ? statusFilteredTasks.filter(
-        (task) => (task.category || 'General') === category
-      )
-    : statusFilteredTasks
-
-  const searchText = debouncedSearch.trim().toLowerCase()
-
-  const searchedTasks = searchText
-    ? categoryFilteredTasks.filter(
-        (task) =>
-          task.title.toLowerCase().includes(searchText) ||
-          task.description.toLowerCase().includes(searchText)
-      )
-    : categoryFilteredTasks
-
-  const sortedTasks = [...searchedTasks].sort((a, b) => {
-    if (sortOrder === 'high-to-low') {
-      const priority = {
-        High: 3,
-        Medium: 2,
-        Low: 1,
-      }
-
-      return (
-        priority[b.priority as keyof typeof priority] -
-        priority[a.priority as keyof typeof priority]
-      )
-    }
-
-    if (sortOrder === 'low-to-high') {
-      const priority = {
-        High: 3,
-        Medium: 2,
-        Low: 1,
-      }
-
-      return (
-        priority[a.priority as keyof typeof priority] -
-        priority[b.priority as keyof typeof priority]
-      )
-    }
-
-    if (sortOrder === 'alphabetical') {
-      return a.title.localeCompare(b.title, undefined, {
-        sensitivity: 'base',
+      dispatch({
+        type: ADD_TASK,
+        payload: task as Task,
       })
-    }
+    },
+    [dispatch]
+  )
 
-    if (sortOrder === 'due-date') {
-      const aTime = a.dueDate
-        ? new Date(a.dueDate).getTime()
-        : Number.POSITIVE_INFINITY
+  const handleToggle = useCallback(
+    (id: string | number) => {
+      if (!dispatch) return
 
-      const bTime = b.dueDate
-        ? new Date(b.dueDate).getTime()
-        : Number.POSITIVE_INFINITY
+      dispatch({
+        type: TOGGLE_TASK,
+        payload: id,
+      })
+    },
+    [dispatch]
+  )
 
-      const safeATime = Number.isNaN(aTime)
-        ? Number.POSITIVE_INFINITY
-        : aTime
+  const handleUpdateTask = useCallback(
+    (
+      id: string | number,
+      updates: {
+        title: string
+        description: string
+        priority: string
+        dueDate?: string
+      }
+    ) => {
+      if (!dispatch) return
 
-      const safeBTime = Number.isNaN(bTime)
-        ? Number.POSITIVE_INFINITY
-        : bTime
+      dispatch({
+        type: UPDATE_TASK,
+        payload: {
+          id,
+          ...updates,
+        },
+      })
 
-      return safeATime - safeBTime
-    }
+      setEditingId(null)
+    },
+    [dispatch]
+  )
 
-    return 0
-  })
+  const handleStartEdit = useCallback(
+    (id: string | number) => {
+      setEditingId(id)
+    },
+    []
+  )
+
+  const handleCancelEdit = useCallback(() => {
+    setEditingId(null)
+  }, [])
+
+  const completedCount = useMemo(
+    () => tasks.filter((task) => task.completed).length,
+    [tasks]
+  )
+
+  const categories = useMemo(
+    () => [
+      ...new Set(
+        tasks
+          .map((task) => task.category || 'General')
+          .filter(Boolean)
+      ),
+    ],
+    [tasks]
+  )
+
+  const sortedTasks = useMemo(() => {
+    const statusFilteredTasks =
+      filter === 'active'
+        ? tasks.filter((task) => !task.completed)
+        : filter === 'completed'
+        ? tasks.filter((task) => task.completed)
+        : tasks
+
+    const categoryFilteredTasks = category
+      ? statusFilteredTasks.filter(
+          (task) =>
+            (task.category || 'General') === category
+        )
+      : statusFilteredTasks
+
+    const searchText = debouncedSearch
+      .trim()
+      .toLowerCase()
+
+    const searchedTasks = searchText
+      ? categoryFilteredTasks.filter(
+          (task) =>
+            task.title
+              .toLowerCase()
+              .includes(searchText) ||
+            task.description
+              .toLowerCase()
+              .includes(searchText)
+        )
+      : categoryFilteredTasks
+
+    return [...searchedTasks].sort((a, b) => {
+      if (sortOrder === 'high-to-low') {
+        const priority = {
+          High: 3,
+          Medium: 2,
+          Low: 1,
+        }
+
+        return (
+          priority[
+            b.priority as keyof typeof priority
+          ] -
+          priority[
+            a.priority as keyof typeof priority
+          ]
+        )
+      }
+
+      if (sortOrder === 'low-to-high') {
+        const priority = {
+          High: 3,
+          Medium: 2,
+          Low: 1,
+        }
+
+        return (
+          priority[
+            a.priority as keyof typeof priority
+          ] -
+          priority[
+            b.priority as keyof typeof priority
+          ]
+        )
+      }
+
+      if (sortOrder === 'alphabetical') {
+        return a.title.localeCompare(
+          b.title,
+          undefined,
+          {
+            sensitivity: 'base',
+          }
+        )
+      }
+
+      if (sortOrder === 'due-date') {
+        const aTime = a.dueDate
+          ? new Date(a.dueDate).getTime()
+          : Number.POSITIVE_INFINITY
+
+        const bTime = b.dueDate
+          ? new Date(b.dueDate).getTime()
+          : Number.POSITIVE_INFINITY
+
+        const safeATime = Number.isNaN(aTime)
+          ? Number.POSITIVE_INFINITY
+          : aTime
+
+        const safeBTime = Number.isNaN(bTime)
+          ? Number.POSITIVE_INFINITY
+          : bTime
+
+        return safeATime - safeBTime
+      }
+
+      return 0
+    })
+  }, [
+    tasks,
+    filter,
+    category,
+    debouncedSearch,
+    sortOrder,
+  ])
 
   const hasSearch = search.trim().length > 0
   const isSearching = search !== debouncedSearch
@@ -200,8 +259,10 @@ export default function TaskApp({
       data-theme={theme}
       style={{
         minHeight: '100vh',
-        backgroundColor: theme === 'dark' ? '#111827' : '#fff',
-        color: theme === 'dark' ? '#f9fafb' : '#111',
+        backgroundColor:
+          theme === 'dark' ? '#111827' : '#fff',
+        color:
+          theme === 'dark' ? '#f9fafb' : '#111',
         padding: '1rem',
       }}
     >
@@ -220,12 +281,16 @@ export default function TaskApp({
             theme === 'dark'
               ? '1px solid #555'
               : '1px solid #ccc',
-          backgroundColor: theme === 'dark' ? '#374151' : '#fff',
-          color: theme === 'dark' ? '#fff' : '#111',
+          backgroundColor:
+            theme === 'dark' ? '#374151' : '#fff',
+          color:
+            theme === 'dark' ? '#fff' : '#111',
           cursor: 'pointer',
         }}
       >
-        {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+        {theme === 'light'
+          ? 'Dark Mode'
+          : 'Light Mode'}
       </button>
 
       {showFilterBar
@@ -234,7 +299,9 @@ export default function TaskApp({
         ? `${completedCount} of ${tasks.length} completed`
         : `${tasks.length} Tasks`}
 
-      {showStatsPanel && <StatsPanel tasks={tasks} />}
+      {showStatsPanel && (
+        <StatsPanel tasks={tasks} />
+      )}
 
       {showForm && (
         <TaskForm
@@ -257,13 +324,16 @@ export default function TaskApp({
         />
       )}
 
-      {showFilterBar && isSearching && hasSearch && (
-        <p id="searching-indicator">
-          Searching...
-        </p>
-      )}
+      {showFilterBar &&
+        isSearching &&
+        hasSearch && (
+          <p id="searching-indicator">
+            Searching...
+          </p>
+        )}
 
-      {showFilterBar && sortedTasks.length === 0 ? (
+      {showFilterBar &&
+      sortedTasks.length === 0 ? (
         <p id="filter-empty-message">
           {hasSearch
             ? 'No tasks found'
@@ -275,11 +345,13 @@ export default function TaskApp({
           onToggle={handleToggle}
           onDelete={onDelete}
           editingId={editingId}
-          onStartEdit={setEditingId}
-          onCancelEdit={() => setEditingId(null)}
+          onStartEdit={handleStartEdit}
+          onCancelEdit={handleCancelEdit}
           onUpdateTask={handleUpdateTask}
         />
       )}
     </div>
   )
 }
+
+export default React.memo(TaskApp)

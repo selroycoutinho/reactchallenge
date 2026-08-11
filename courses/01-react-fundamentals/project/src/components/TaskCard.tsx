@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Button from './Button'
 import Badge from './Badge'
 import FormInput from './FormInput'
@@ -35,7 +35,7 @@ const STATUS_KEY_MAP: Record<string, TaskStatus> = {
   'Due Soon': 'due-soon',
 }
 
-export default function TaskCard({
+function TaskCard({
   title,
   description,
   priority,
@@ -150,13 +150,17 @@ export default function TaskCard({
           id="edit-task-description"
           type="textarea"
           value={editDescription}
-          onChange={(event) => setEditDescription(event.target.value)}
+          onChange={(event) =>
+            setEditDescription(event.target.value)
+          }
           ariaLabel="Task description"
         />
 
         <select
           value={editPriority}
-          onChange={(event) => setEditPriority(event.target.value)}
+          onChange={(event) =>
+            setEditPriority(event.target.value)
+          }
           aria-label="Task priority"
         >
           <option value="High">High</option>
@@ -168,15 +172,25 @@ export default function TaskCard({
           id="edit-task-due-date"
           type="date"
           value={editDueDate}
-          onChange={(event) => setEditDueDate(event.target.value)}
+          onChange={(event) =>
+            setEditDueDate(event.target.value)
+          }
           ariaLabel="Task due date"
         />
 
-        <Button type="button" variant="primary" onClick={handleSave}>
+        <Button
+          type="button"
+          variant="primary"
+          onClick={handleSave}
+        >
           Save
         </Button>
 
-        <Button type="button" variant="secondary" onClick={onCancelEdit}>
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={onCancelEdit}
+        >
           Cancel
         </Button>
       </article>
@@ -210,7 +224,9 @@ export default function TaskCard({
 
       <h2
         style={{
-          textDecoration: completed ? 'line-through' : 'none',
+          textDecoration: completed
+            ? 'line-through'
+            : 'none',
         }}
       >
         {title}
@@ -218,7 +234,9 @@ export default function TaskCard({
 
       <p
         style={{
-          textDecoration: completed ? 'line-through' : 'none',
+          textDecoration: completed
+            ? 'line-through'
+            : 'none',
         }}
       >
         {description}
@@ -248,23 +266,38 @@ export default function TaskCard({
           }}
         >
           Due: {new Date(dueDate).toLocaleDateString()}
+
           {dueDateStatus && (
-            <StatusIndicator status={STATUS_KEY_MAP[dueDateStatus]} />
+            <StatusIndicator
+              status={STATUS_KEY_MAP[dueDateStatus]}
+            />
           )}
         </p>
       )}
 
       {onStartEdit && (
-        <Button type="button" variant="secondary" onClick={handleEdit}>
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={handleEdit}
+        >
           Edit
         </Button>
       )}
 
       {onDelete && (
-        <Button type="button" variant="danger" onClick={handleDelete}>
+        <Button
+          type="button"
+          variant="danger"
+          onClick={handleDelete}
+        >
           Delete
         </Button>
       )}
     </article>
   )
 }
+
+const MemoizedTaskCard = React.memo(TaskCard)
+
+export default MemoizedTaskCard

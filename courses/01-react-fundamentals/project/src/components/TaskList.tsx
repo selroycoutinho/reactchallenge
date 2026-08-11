@@ -1,3 +1,4 @@
+import React, { useCallback, useMemo } from 'react'
 import TaskCard from './TaskCard'
 
 export interface Task {
@@ -54,7 +55,7 @@ const HARDCODED_TASKS: Task[] = [
   },
 ]
 
-export default function TaskList({
+function TaskList({
   tasks,
   onToggle,
   onDelete,
@@ -63,29 +64,46 @@ export default function TaskList({
   onCancelEdit,
   onUpdateTask,
 }: TaskListProps) {
-  const list = tasks ?? HARDCODED_TASKS
+  const list = useMemo(
+    () => tasks ?? HARDCODED_TASKS,
+    [tasks]
+  )
+
+  const renderTask = useCallback(
+    (task: Task) => (
+      <TaskCard
+        key={task.id}
+        taskId={task.id}
+        title={task.title}
+        description={task.description}
+        priority={task.priority}
+        category={task.category}
+        tags={task.tags}
+        dueDate={task.dueDate}
+        completed={task.completed}
+        onToggle={onToggle}
+        onDelete={onDelete}
+        editingId={editingId}
+        onStartEdit={onStartEdit}
+        onCancelEdit={onCancelEdit}
+        onUpdateTask={onUpdateTask}
+      />
+    ),
+    [
+      onToggle,
+      onDelete,
+      editingId,
+      onStartEdit,
+      onCancelEdit,
+      onUpdateTask,
+    ]
+  )
 
   return (
     <section id="task-list">
-      {list.map((task) => (
-        <TaskCard
-          key={task.id}
-          taskId={task.id}
-          title={task.title}
-          description={task.description}
-          priority={task.priority}
-          category={task.category}
-          tags={task.tags}
-          dueDate={task.dueDate}
-          completed={task.completed}
-          onToggle={onToggle}
-          onDelete={onDelete}
-          editingId={editingId}
-          onStartEdit={onStartEdit}
-          onCancelEdit={onCancelEdit}
-          onUpdateTask={onUpdateTask}
-        />
-      ))}
+      {list.map(renderTask)}
     </section>
   )
 }
+
+export default React.memo(TaskList)
