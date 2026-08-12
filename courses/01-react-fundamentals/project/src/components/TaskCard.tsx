@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Button from './Button'
 import Badge from './Badge'
 import FormInput from './FormInput'
@@ -27,6 +28,7 @@ interface TaskCardProps {
       dueDate?: string
     }
   ) => void
+  linkToTaskDetail?: boolean
 }
 
 const STATUS_KEY_MAP: Record<string, TaskStatus> = {
@@ -50,9 +52,11 @@ function TaskCard({
   onStartEdit,
   onCancelEdit,
   onUpdateTask,
+  linkToTaskDetail = false,
 }: TaskCardProps) {
   const [editTitle, setEditTitle] = useState(title)
-  const [editDescription, setEditDescription] = useState(description)
+  const [editDescription, setEditDescription] =
+    useState(description)
   const [editPriority, setEditPriority] = useState(priority)
   const [editDueDate, setEditDueDate] = useState(
     dueDate ? String(dueDate) : ''
@@ -142,7 +146,9 @@ function TaskCard({
         <FormInput
           id="edit-task-title"
           value={editTitle}
-          onChange={(event) => setEditTitle(event.target.value)}
+          onChange={(event) =>
+            setEditTitle(event.target.value)
+          }
           ariaLabel="Task title"
         />
 
@@ -229,7 +235,15 @@ function TaskCard({
             : 'none',
         }}
       >
-        {title}
+        {linkToTaskDetail ? (
+          <Link
+            to={`/challenge/21-react-router/task/${taskId}`}
+          >
+            {title}
+          </Link>
+        ) : (
+          title
+        )}
       </h2>
 
       <p

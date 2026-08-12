@@ -47,6 +47,7 @@ function TaskApp({
   showFilterBar,
   showStatsPanel,
   onDelete,
+  linkToTaskDetail,
 }: TaskAppProps) {
   const { theme, toggleTheme } = useTheme()
 
@@ -350,6 +351,7 @@ function TaskApp({
             onStartEdit={handleStartEdit}
             onCancelEdit={handleCancelEdit}
             onUpdateTask={handleUpdateTask}
+            linkToTaskDetail={linkToTaskDetail}
           />
         </ErrorBoundary>
       )}

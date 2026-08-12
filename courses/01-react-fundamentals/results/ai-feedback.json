@@ -454,5 +454,21 @@
       "maintainability": 90,
       "overall": "The code is well-structured and easy to follow, but could benefit from some minor improvements to make it more maintainable and efficient."
     }
+  },
+  {
+    "challengeId": "21-react-router",
+    "challengeName": "React Router - Routing and Navigation",
+    "aiReview": {
+      "challengeId": "21-react-router",
+      "timestamp": "2026-08-12T05:46:41.709Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (413): Request too large for model `llama-3.1-8b-instant` in organization `org_01kz676xr0e47ta9d6yz7wwms7` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 6299, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    }
   }
 ]

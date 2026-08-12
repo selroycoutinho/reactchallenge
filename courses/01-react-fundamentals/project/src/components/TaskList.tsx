@@ -29,6 +29,7 @@ interface TaskListProps {
       dueDate?: string
     }
   ) => void
+  linkToTaskDetail?: boolean
 }
 
 const HARDCODED_TASKS: Task[] = [
@@ -63,6 +64,7 @@ function TaskList({
   onStartEdit,
   onCancelEdit,
   onUpdateTask,
+  linkToTaskDetail = false,
 }: TaskListProps) {
   const list = useMemo(
     () => tasks ?? HARDCODED_TASKS,
@@ -87,6 +89,7 @@ function TaskList({
         onStartEdit={onStartEdit}
         onCancelEdit={onCancelEdit}
         onUpdateTask={onUpdateTask}
+        linkToTaskDetail={linkToTaskDetail}
       />
     ),
     [
@@ -96,6 +99,7 @@ function TaskList({
       onStartEdit,
       onCancelEdit,
       onUpdateTask,
+      linkToTaskDetail,
     ]
   )
 
