@@ -1,4 +1,7 @@
-import type { ChangeEvent } from 'react'
+import type {
+  ChangeEvent,
+  RefObject,
+} from 'react'
 
 interface FormInputProps {
   id?: string
@@ -11,6 +14,7 @@ interface FormInputProps {
   placeholder?: string
   error?: string
   ariaLabel?: string
+  inputRef?: RefObject<HTMLInputElement | null>
 }
 
 export default function FormInput({
@@ -22,8 +26,10 @@ export default function FormInput({
   placeholder,
   error,
   ariaLabel,
+  inputRef,
 }: FormInputProps) {
-  const resolvedAriaLabel = ariaLabel ?? label ?? placeholder
+  const resolvedAriaLabel =
+    ariaLabel ?? label ?? placeholder
 
   return (
     <div>
@@ -39,6 +45,7 @@ export default function FormInput({
         />
       ) : (
         <input
+          ref={inputRef}
           id={id}
           type={type}
           value={value}
@@ -48,7 +55,11 @@ export default function FormInput({
         />
       )}
 
-      {error && <p id={id ? `${id}-error` : undefined}>{error}</p>}
+      {error && (
+        <p id={id ? `${id}-error` : undefined}>
+          {error}
+        </p>
+      )}
     </div>
   )
 }
