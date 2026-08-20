@@ -53,5 +53,33 @@
       "overall": "The implementation satisfies all functional requirements and follows Redux Toolkit best practices for a simple counter slice. While RTK Query is not part of this challenge, the code demonstrates solid slice creation, store integration, and typed hooks, making it ready for future expansion.",
       "requirementCompliance": 95
     }
+  },
+  {
+    "challengeId": "03-reading-dispatching",
+    "challengeName": "Reading and Dispatching in Components",
+    "aiReview": {
+      "challengeId": "03-reading-dispatching",
+      "timestamp": "2026-08-20T14:08:24.415Z",
+      "score": 85,
+      "feedback": [],
+      "strengths": [
+        "Typed hooks (`useAppDispatch` & `useAppSelector`) are correctly exported in `src/store/hooks.ts` using `useDispatch.withTypes` and `useSelector.withTypes`.",
+        "The `CounterView` component cleanly reads state and dispatches actions using the typed hooks, and all required `data-testid` attributes are present.",
+        "The store configuration in `src/store/store.ts` is concise and correctly exports `RootState` and `AppDispatch`."
+      ],
+      "improvements": [
+        "Add the route `/challenge/03-reading-dispatching` to the main router (likely in `src/App.tsx` or a dedicated routing file). Without this, the component will not be reachable.",
+        "Verify the shape of the `counter` slice. If the slice state is an object (e.g., `{ value: number }`), the selector should be `state.counter.value`. Adjust the selector accordingly to avoid runtime errors.",
+        "Consider using a named export for `CounterView` (`export function CounterView() { ... }`) to make it easier to import elsewhere and to aid tree‑shaking.",
+        "Add explicit type annotation for the `count` variable (`const count: number = useAppSelector(...)`) to improve type clarity.",
+        "Add accessibility attributes such as `aria-label` to the buttons or use semantic `<button>` elements with descriptive text.",
+        "Create a small test suite for `CounterView` that verifies the counter value and button interactions using React Testing Library.",
+        "Optionally wrap the component in `React.memo` if it becomes heavy, but this is not required for the current scope."
+      ],
+      "readability": 90,
+      "maintainability": 85,
+      "overall": "The implementation correctly sets up typed hooks and a functional counter component that meets the UI and test‑id requirements. The main missing piece is the route integration, and a small check on the counter slice shape will ensure runtime safety. Overall, the code is clean, well‑structured, and maintainable.",
+      "requirementCompliance": 80
+    }
   }
 ]
