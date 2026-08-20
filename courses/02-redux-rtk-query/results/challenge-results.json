@@ -1,1 +1,294 @@
-[]
+[
+  {
+    "challengeId": "01-store-setup",
+    "challengeName": "Store Setup with configureStore",
+    "timestamp": "2026-08-20T13:21:10.683Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 79
+    },
+    "totalScore": 96.85,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 01: Store Setup with configureStore"
+              ],
+              "fullName": " Challenge 01: Store Setup with configureStore store uses configureStore",
+              "status": "passed",
+              "title": "store uses configureStore",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 01: Store Setup with configureStore"
+              ],
+              "fullName": " Challenge 01: Store Setup with configureStore store exports RootState and AppDispatch",
+              "status": "passed",
+              "title": "store exports RootState and AppDispatch",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 01: Store Setup with configureStore"
+              ],
+              "fullName": " Challenge 01: Store Setup with configureStore main.tsx wraps App with Provider and passes store",
+              "status": "passed",
+              "title": "main.tsx wraps App with Provider and passes store",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787232076552,
+          "endTime": 1787232076556,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/seema/Desktop/reactchallenge/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-01.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\main.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\store\\store.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "reducer",
+        "middleware",
+        "Provider"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/store/store.ts",
+          "patternsFound": [
+            "reducer",
+            "middleware"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "src/main.tsx",
+          "patternsFound": [
+            "Provider"
+          ],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-01.spec.ts",
+          "file": "challenge-01.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 01: Store Setup - E2E",
+              "file": "challenge-01.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load challenge 01 page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 673,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-20T13:21:28.841Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "77d07a436f655ce05c79-b2daf7d916cc74047b42",
+                  "file": "challenge-01.spec.ts",
+                  "line": 8,
+                  "column": 3
+                },
+                {
+                  "title": "should have challenge content",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 375,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-20T13:21:30.092Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "77d07a436f655ce05c79-41ccc5c1139901d7300c",
+                  "file": "challenge-01.spec.ts",
+                  "line": 13,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "01-store-setup",
+      "timestamp": "2026-08-20T13:21:31.051Z",
+      "score": 79,
+      "feedback": [],
+      "strengths": [
+        "Store is created with `configureStore` and an empty reducer, satisfying the core requirement.",
+        "RootState and AppDispatch types are exported correctly, enabling typed dispatch/selector usage.",
+        "The `<Provider>` wrapper in `main.tsx` correctly exposes the store to the React component tree."
+      ],
+      "improvements": [
+        "Remove the redundant `middleware` configuration in `src/store/store.ts` – the default middleware is already applied by `configureStore`.",
+        "Fix the typed hooks in `src/store/hooks.ts`. The current implementation uses `useDispatch.withTypes` and `useSelector.withTypes`, which are not part of the React‑Redux API. Replace with:",
+        "```ts\nimport { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';\nimport type { RootState, AppDispatch } from './store';\n\nexport const useAppDispatch = () => useDispatch<AppDispatch>();\nexport const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;\n```",
+        "Avoid importing modules with the `.ts` or `.tsx` extension in `src/main.tsx`. Change `import { store } from './store/store.ts'` to `import { store } from './store/store'` and `import App from './App.tsx'` to `import App from './App'`. This keeps the import paths consistent with the bundler’s resolution strategy.",
+        "Add a comment in `store.ts` explaining that the reducer object is intentionally empty for now and will be populated as the project grows.",
+        "Consider creating a `store/index.ts` that re‑exports the store and types to simplify imports throughout the codebase."
+      ],
+      "readability": 80,
+      "maintainability": 70,
+      "overall": "The implementation correctly sets up the Redux store and provides the Provider wrapper, meeting the functional requirements. However, the typed hooks are incorrectly implemented and the import paths include file extensions, which could lead to build or runtime errors. Fixing these issues will bring the code in line with best practices and improve maintainability.",
+      "requirementCompliance": 85
+    },
+    "aiResults": {
+      "challengeId": "01-store-setup",
+      "timestamp": "2026-08-20T13:21:31.051Z",
+      "score": 79,
+      "feedback": [],
+      "strengths": [
+        "Store is created with `configureStore` and an empty reducer, satisfying the core requirement.",
+        "RootState and AppDispatch types are exported correctly, enabling typed dispatch/selector usage.",
+        "The `<Provider>` wrapper in `main.tsx` correctly exposes the store to the React component tree."
+      ],
+      "improvements": [
+        "Remove the redundant `middleware` configuration in `src/store/store.ts` – the default middleware is already applied by `configureStore`.",
+        "Fix the typed hooks in `src/store/hooks.ts`. The current implementation uses `useDispatch.withTypes` and `useSelector.withTypes`, which are not part of the React‑Redux API. Replace with:",
+        "```ts\nimport { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';\nimport type { RootState, AppDispatch } from './store';\n\nexport const useAppDispatch = () => useDispatch<AppDispatch>();\nexport const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;\n```",
+        "Avoid importing modules with the `.ts` or `.tsx` extension in `src/main.tsx`. Change `import { store } from './store/store.ts'` to `import { store } from './store/store'` and `import App from './App.tsx'` to `import App from './App'`. This keeps the import paths consistent with the bundler’s resolution strategy.",
+        "Add a comment in `store.ts` explaining that the reducer object is intentionally empty for now and will be populated as the project grows.",
+        "Consider creating a `store/index.ts` that re‑exports the store and types to simplify imports throughout the codebase."
+      ],
+      "readability": 80,
+      "maintainability": 70,
+      "overall": "The implementation correctly sets up the Redux store and provides the Provider wrapper, meeting the functional requirements. However, the typed hooks are incorrectly implemented and the import paths include file extensions, which could lead to build or runtime errors. Fixing these issues will bring the code in line with best practices and improve maintainability.",
+      "requirementCompliance": 85
+    }
+  }
+]
