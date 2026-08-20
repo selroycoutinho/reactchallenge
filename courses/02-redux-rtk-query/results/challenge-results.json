@@ -1050,5 +1050,320 @@
       "overall": "The implementation correctly sets up typed hooks and a functional counter component that meets the UI and test‑id requirements. The main missing piece is the route integration, and a small check on the counter slice shape will ensure runtime safety. Overall, the code is clean, well‑structured, and maintainable.",
       "requirementCompliance": 80
     }
+  },
+  {
+    "challengeId": "04-multiple-slices",
+    "challengeName": "Multiple Slices in the Store",
+    "timestamp": "2026-08-20T14:12:20.481Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 50,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 91
+    },
+    "totalScore": 93.65,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 04: Multiple Slices"
+              ],
+              "fullName": " Challenge 04: Multiple Slices uiSlice exists and uses createSlice",
+              "status": "passed",
+              "title": "uiSlice exists and uses createSlice",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 04: Multiple Slices"
+              ],
+              "fullName": " Challenge 04: Multiple Slices store includes both counter and ui reducers",
+              "status": "passed",
+              "title": "store includes both counter and ui reducers",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787235146255,
+          "endTime": 1787235146257,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/seema/Desktop/reactchallenge/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-04.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\store\\slices\\counterSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\store\\slices\\uiSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\store\\store.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 50,
+      "passed": false,
+      "patternsFound": [
+        "reducer",
+        "reducer",
+        "reducer"
+      ],
+      "patternsMissing": [
+        "middleware",
+        "middleware",
+        "middleware"
+      ],
+      "details": [
+        {
+          "file": "src/store/store.ts",
+          "patternsFound": [
+            "reducer"
+          ],
+          "patternsMissing": [
+            "middleware"
+          ]
+        },
+        {
+          "file": "src/store/slices/counterSlice.ts",
+          "patternsFound": [
+            "reducer"
+          ],
+          "patternsMissing": [
+            "middleware"
+          ]
+        },
+        {
+          "file": "src/store/slices/uiSlice.ts",
+          "patternsFound": [
+            "reducer"
+          ],
+          "patternsMissing": [
+            "middleware"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-04.spec.ts",
+          "file": "challenge-04.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 04: Multiple Slices - E2E",
+              "file": "challenge-04.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load challenge 04 page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 482,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-20T14:12:38.317Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "0401c8ab289c6ab836d0-873390d60fea24599250",
+                  "file": "challenge-04.spec.ts",
+                  "line": 8,
+                  "column": 3
+                },
+                {
+                  "title": "should have challenge content",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 334,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-20T14:12:38.978Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "0401c8ab289c6ab836d0-24401b46065f449c1869",
+                  "file": "challenge-04.spec.ts",
+                  "line": 13,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "04-multiple-slices",
+      "timestamp": "2026-08-20T14:12:39.816Z",
+      "score": 91,
+      "feedback": [],
+      "strengths": [
+        "Implemented `uiSlice` with `createSlice`, initial state, and a toggle reducer as required.",
+        "Store configuration correctly maps both `counter` and `ui` reducers using `configureStore`.",
+        "Typed hooks (`useAppDispatch`, `useAppSelector`) provide a clean API for components."
+      ],
+      "improvements": [
+        "Add explicit type for the counter state in `counterSlice.ts` (e.g., `type CounterState = number;`) to improve type safety and future extensibility.",
+        "Export the slice itself (e.g., `export const counterSlice = createSlice(...)`) if you anticipate needing the slice in tests or for advanced usage.",
+        "Create an `index.ts` in `src/store/slices` to re‑export all slices, simplifying imports elsewhere.",
+        "Consider adding a small comment above each slice explaining its domain purpose for new developers.",
+        "If you plan to add more UI state later, keep the `uiSlice` in its own file and expose a dedicated selector (e.g., `selectSidebarOpen`) for consistency."
+      ],
+      "readability": 90,
+      "maintainability": 85,
+      "overall": "The implementation satisfies all functional requirements: a second UI slice is created, both slices are registered in the store, and the code follows RTK best practices for slice creation and store configuration. While RTK Query is not used here (not required), the code is clean, typed, and ready for future expansion.",
+      "requirementCompliance": 95
+    },
+    "aiResults": {
+      "challengeId": "04-multiple-slices",
+      "timestamp": "2026-08-20T14:12:39.816Z",
+      "score": 91,
+      "feedback": [],
+      "strengths": [
+        "Implemented `uiSlice` with `createSlice`, initial state, and a toggle reducer as required.",
+        "Store configuration correctly maps both `counter` and `ui` reducers using `configureStore`.",
+        "Typed hooks (`useAppDispatch`, `useAppSelector`) provide a clean API for components."
+      ],
+      "improvements": [
+        "Add explicit type for the counter state in `counterSlice.ts` (e.g., `type CounterState = number;`) to improve type safety and future extensibility.",
+        "Export the slice itself (e.g., `export const counterSlice = createSlice(...)`) if you anticipate needing the slice in tests or for advanced usage.",
+        "Create an `index.ts` in `src/store/slices` to re‑export all slices, simplifying imports elsewhere.",
+        "Consider adding a small comment above each slice explaining its domain purpose for new developers.",
+        "If you plan to add more UI state later, keep the `uiSlice` in its own file and expose a dedicated selector (e.g., `selectSidebarOpen`) for consistency."
+      ],
+      "readability": 90,
+      "maintainability": 85,
+      "overall": "The implementation satisfies all functional requirements: a second UI slice is created, both slices are registered in the store, and the code follows RTK best practices for slice creation and store configuration. While RTK Query is not used here (not required), the code is clean, typed, and ready for future expansion.",
+      "requirementCompliance": 95
+    }
   }
 ]
