@@ -135,5 +135,30 @@
       "overall": "The implementation correctly follows the challenge requirements by using `createAsyncThunk` and `extraReducers` to manage async user fetching. The code is clean, well‑typed, and integrates seamlessly into the Redux store. While it meets all functional criteria, adding explicit thunk generics and a typed error payload would enhance type safety and future maintainability.",
       "requirementCompliance": 95
     }
+  },
+  {
+    "challengeId": "06-rtk-query-setup",
+    "challengeName": "RTK Query Setup and API Slice",
+    "aiReview": {
+      "challengeId": "06-rtk-query-setup",
+      "timestamp": "2026-08-21T09:17:52.881Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [
+        "Proper use of `createApi` and `fetchBaseQuery` to set up an RTK Query slice.\",",
+        "Clear separation of concerns: API logic in `apiSlice.ts`, mock data in `mockServer.ts`, and store configuration in `store.ts`.\",",
+        "Typed hooks (`useAppDispatch`, `useAppSelector`) provide type safety across the app.",
+        "improvements\": [",
+        "In `src/api/apiSlice.ts`, consider using a real `query` string (e.g., `query: '/users'`) instead of `queryFn` for consistency with typical RTK Query usage. If a custom query function is required, add `providesTags` to enable cache invalidation.\","
+      ],
+      "improvements": [
+        "In `src/api/apiSlice.ts`, consider using a real `query` string (e.g., `query: '/users'`) instead of `queryFn` for consistency with typical RTK Query usage. If a custom query function is required, add `providesTags` to enable cache invalidation.\",",
+        "Add explicit error typing in the `queryFn` return value: `error: { status: 'CUSTOM_ERROR'; error: string }` to satisfy TypeScript and improve IDE"
+      ],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "```json\n{\n  \"readability\": 85,\n  \"maintainability\": 80,\n  \"strengths\": [\n    \"Proper use of `createApi` and `fetchBaseQuery` to set up an RTK Query slice.\",\n    \"Clear separation of concerns: API logic in `apiSlice.ts`, mock data in `mockServer.ts`, and store configuration in `store.ts`.\",\n    \"Typed hooks (`useAppDispatch`, `useAppSelector`) provide type safety across the app.\"\n  ],\n  \"improvements\": [\n    \"In `src/api/apiSlice.ts`, consider using a real `query` string (e.g., `query: '/users'`)",
+      "requirementCompliance": 0
+    }
   }
 ]
