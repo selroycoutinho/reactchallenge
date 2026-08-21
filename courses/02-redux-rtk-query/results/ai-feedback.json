@@ -160,5 +160,21 @@
       "overall": "```json\n{\n  \"readability\": 85,\n  \"maintainability\": 80,\n  \"strengths\": [\n    \"Proper use of `createApi` and `fetchBaseQuery` to set up an RTK Query slice.\",\n    \"Clear separation of concerns: API logic in `apiSlice.ts`, mock data in `mockServer.ts`, and store configuration in `store.ts`.\",\n    \"Typed hooks (`useAppDispatch`, `useAppSelector`) provide type safety across the app.\"\n  ],\n  \"improvements\": [\n    \"In `src/api/apiSlice.ts`, consider using a real `query` string (e.g., `query: '/users'`)",
       "requirementCompliance": 0
     }
+  },
+  {
+    "challengeId": "07-queries",
+    "challengeName": "Query Endpoints and useQuery Hooks",
+    "aiReview": {
+      "challengeId": "07-queries",
+      "timestamp": "2026-08-21T09:22:37.391Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "requirementCompliance": 0
+    }
   }
 ]
