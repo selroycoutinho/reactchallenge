@@ -1,29 +1,39 @@
 import { useGetUsersQuery } from '../api/apiSlice'
+import ErrorDisplay from './ErrorDisplay'
 
 export default function UsersList() {
-  const useQueryHook = useGetUsersQuery
-
-  const { data, isLoading, error } = useQueryHook()
+  const {
+    data: users = [],
+    isLoading,
+    isError,
+    error,
+    refetch,
+  } = useGetUsersQuery()
 
   if (isLoading) {
-    return <p data-testid="users-loading">Loading...</p>
+    return (
+      <p data-testid="users-loading">
+        Loading users...
+      </p>
+    )
   }
 
-  if (error) {
+  if (isError) {
     return (
-      <p data-testid="users-error">
-        Failed to load users
-      </p>
+      <ErrorDisplay
+        error={error}
+        onRetry={refetch}
+      />
     )
   }
 
   return (
     <ul data-testid="users-list">
-      {data?.map((user) => (
+      {users.map((user) => (
         <li key={user.id}>
           <strong>{user.name}</strong>
           <span> — {user.email}</span>
-          <span> — @{user.username}</span>
+          <span> — {user.username}</span>
         </li>
       ))}
     </ul>

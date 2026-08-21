@@ -253,5 +253,29 @@
       "overall": "",
       "requirementCompliance": 0
     }
+  },
+  {
+    "challengeId": "12-error-loading-ux",
+    "challengeName": "Error and Loading UX",
+    "aiReview": {
+      "challengeId": "12-error-loading-ux",
+      "timestamp": "2026-08-21T09:43:26.684Z",
+      "score": 91,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: UsersList handles data fetching, ErrorDisplay handles error UI, and AddPostForm handles mutation logic.",
+        "All required data-testid attributes are present, making the components testable.",
+        "The code follows RTK Query conventions: hooks are used correctly and the store integration is assumed to be set up elsewhere."
+      ],
+      "improvements": [
+        "Add a dedicated `User` interface and type the `data` returned from `useGetUsersQuery` in `UsersList.tsx` to improve type safety and IDE support.",
+        "Refactor `ErrorDisplay.tsx` to accept a more specific error type (`Error | { message: string } | string`) so that the component can reliably extract a message without relying on `unknown`.",
+        "Consider adding an `aria-live` region or a more descriptive loading indicator (e.g., a spinner component) to enhance accessibility and UX."
+      ],
+      "readability": 90,
+      "maintainability": 85,
+      "overall": "The implementation satisfies all functional requirements and demonstrates solid use of RTK Query hooks. Minor type‑safety and accessibility improvements would make the code even more robust and maintainable.",
+      "requirementCompliance": 95
+    }
   }
 ]
