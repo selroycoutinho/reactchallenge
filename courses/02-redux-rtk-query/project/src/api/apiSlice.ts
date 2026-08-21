@@ -19,7 +19,6 @@ export const apiSlice = createApi({
       queryFn: async () => {
         try {
           const data = await mockApi.getUsers()
-
           return { data }
         } catch (error) {
           return {
@@ -53,7 +52,6 @@ export const apiSlice = createApi({
       queryFn: async (user) => {
         try {
           const data = await mockApi.createUser(user)
-
           return { data }
         } catch (error) {
           return {
@@ -77,7 +75,6 @@ export const apiSlice = createApi({
       queryFn: async () => {
         try {
           const data = await mockApi.getPosts()
-
           return { data }
         } catch (error) {
           return {
@@ -111,7 +108,6 @@ export const apiSlice = createApi({
       queryFn: async (post) => {
         try {
           const data = await mockApi.createPost(post)
-
           return { data }
         } catch (error) {
           return {
@@ -129,6 +125,30 @@ export const apiSlice = createApi({
       invalidatesTags: [
         { type: 'Post', id: 'LIST' },
       ],
+
+      async onQueryStarted(
+        arg,
+        { dispatch, queryFulfilled }
+      ) {
+        const patchResult = dispatch(
+          apiSlice.util.updateQueryData(
+            'getPosts',
+            undefined,
+            (draft) => {
+              draft.push({
+                ...arg,
+                id: Date.now(),
+              })
+            }
+          )
+        )
+
+        try {
+          await queryFulfilled
+        } catch {
+          patchResult.undo()
+        }
+      },
     }),
   }),
 })
