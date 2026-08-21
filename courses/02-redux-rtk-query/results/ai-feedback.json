@@ -237,5 +237,21 @@
       "overall": "",
       "requirementCompliance": 0
     }
+  },
+  {
+    "challengeId": "11-api-local-state",
+    "challengeName": "API and Local State Together",
+    "aiReview": {
+      "challengeId": "11-api-local-state",
+      "timestamp": "2026-08-21T09:40:21.997Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "requirementCompliance": 0
+    }
   }
 ]
