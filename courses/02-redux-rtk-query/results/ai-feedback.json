@@ -107,5 +107,33 @@
       "overall": "The implementation satisfies all functional requirements: a second UI slice is created, both slices are registered in the store, and the code follows RTK best practices for slice creation and store configuration. While RTK Query is not used here (not required), the code is clean, typed, and ready for future expansion.",
       "requirementCompliance": 95
     }
+  },
+  {
+    "challengeId": "05-async-thunks",
+    "challengeName": "Async Logic with createAsyncThunk",
+    "aiReview": {
+      "challengeId": "05-async-thunks",
+      "timestamp": "2026-08-21T09:14:19.266Z",
+      "score": 91,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: the thunk, slice, and store are in distinct files.",
+        "Proper use of `createAsyncThunk` and `extraReducers` to handle pending/fulfilled/rejected states.",
+        "Consistent TypeScript usage with interfaces and type imports.",
+        "No console statements and ESLint‑compliant formatting."
+      ],
+      "improvements": [
+        "Add explicit generic types to `createAsyncThunk` (e.g., `createAsyncThunk<User[], void, { rejectValue: string }>`). This gives the compiler full knowledge of the payload and error shape.",
+        "Use `rejectWithValue` inside the thunk to provide a typed error payload, then handle it in `rejected` via `action.payload` instead of `action.error.message`.",
+        "Consider exporting the thunk as a named export only (remove the default export of the reducer) to avoid confusion – keep a single source of truth for the reducer.",
+        "Add a small comment block above the thunk explaining its purpose and the API it calls.",
+        "If the project grows, replace the raw array `list` with `createEntityAdapter` for normalized state and easier CRUD operations.",
+        "Add a simple unit test for the slice to verify state transitions (optional but improves confidence)."
+      ],
+      "readability": 90,
+      "maintainability": 85,
+      "overall": "The implementation correctly follows the challenge requirements by using `createAsyncThunk` and `extraReducers` to manage async user fetching. The code is clean, well‑typed, and integrates seamlessly into the Redux store. While it meets all functional criteria, adding explicit thunk generics and a typed error payload would enhance type safety and future maintainability.",
+      "requirementCompliance": 95
+    }
   }
 ]
