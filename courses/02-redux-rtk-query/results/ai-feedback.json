@@ -176,5 +176,34 @@
       "overall": "",
       "requirementCompliance": 0
     }
+  },
+  {
+    "challengeId": "08-caching-refetch",
+    "challengeName": "Caching and Cache Tags",
+    "aiReview": {
+      "challengeId": "08-caching-refetch",
+      "timestamp": "2026-08-21T09:28:36.125Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Tag types are correctly defined in `apiSlice.ts` (`tagTypes: ['User', 'Post']`).",
+        "Both query endpoints (`getUsers`, `getPosts`) use `providesTags` to expose individual entity tags and a `LIST` tag.",
+        "Mutation endpoints (`createUser`, `addPost`) correctly use `invalidatesTags` to trigger refetches of the corresponding list queries.",
+        "TypeScript types are consistently applied across the API slice and mock server, ensuring type safety.",
+        "Error handling is uniform across all `queryFn` implementations, providing a clear error shape."
+      ],
+      "improvements": [
+        "Move the repetitive `queryFn` logic into a reusable helper or use the built‑in `fetchBaseQuery` with a `url` field to reduce duplication in `apiSlice.ts`.",
+        "Add `deleteUser` and `deletePost` mutation endpoints with appropriate `invalidatesTags` to cover all CRUD operations.",
+        "Consider adding individual entity queries (`getUserById`, `getPostById`) that provide tags for the specific entity (`{ type: 'User', id }`), which would allow more granular cache invalidation.",
+        "Remove the explicit `as const` casts on tag objects; the compiler can infer the literal types from the `tagTypes` array.",
+        "Extract the common error handling into a small utility function to keep the endpoint definitions concise.",
+        "Ensure the Redux store is configured with `apiSlice.reducer` and `apiSlice.middleware` (not shown here) so that the tags actually work at runtime."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies all functional requirements: tag types, providesTags, and invalidatesTags are correctly applied, and TypeScript is used throughout. The code follows RTK Query conventions and is easy to read, though some duplication could be reduced with helper functions or the default `fetchBaseQuery` usage.",
+      "requirementCompliance": 92
+    }
   }
 ]

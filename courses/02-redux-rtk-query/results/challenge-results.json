@@ -2213,5 +2213,528 @@
       "overall": "",
       "requirementCompliance": 0
     }
+  },
+  {
+    "challengeId": "08-caching-refetch",
+    "challengeName": "Caching and Cache Tags",
+    "timestamp": "2026-08-21T09:27:47.137Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 0,
+      "aiReview": 86
+    },
+    "totalScore": 82.9,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 08: Caching and Cache Tags"
+              ],
+              "fullName": " Challenge 08: Caching and Cache Tags API slice has providesTags on query endpoint",
+              "status": "passed",
+              "title": "API slice has providesTags on query endpoint",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 08: Caching and Cache Tags"
+              ],
+              "fullName": " Challenge 08: Caching and Cache Tags API slice has invalidatesTags on mutation or tagTypes",
+              "status": "passed",
+              "title": "API slice has invalidatesTags on mutation or tagTypes",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787304472394,
+          "endTime": 1787304472396,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/seema/Desktop/reactchallenge/challenge-engine-react/courses/02-redux-rtk-query/project/tests/challenge-08.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\src\\api\\apiSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": [
+            {
+              "ruleId": "no-extra-semi",
+              "replacedBy": []
+            },
+            {
+              "ruleId": "no-mixed-spaces-and-tabs",
+              "replacedBy": []
+            }
+          ]
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "src/api/apiSlice.ts",
+          "patternsFound": [],
+          "patternsMissing": []
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 0,
+      "passed": false,
+      "totalTests": 2,
+      "passedTests": 0,
+      "failedTests": 2,
+      "details": [
+        {
+          "title": "challenge-08.spec.ts",
+          "file": "challenge-08.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 08: Caching and Cache Tags - E2E",
+              "file": "challenge-08.spec.ts",
+              "line": 3,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load challenge 08 page",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 538,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=Challenge 08')\nExpected: visible\nError: strict mode violation: locator('text=Challenge 08') resolved to 2 elements:\n    1) <h2>Challenge 08: Caching and Cache Tags</h2> aka getByRole('heading', { name: 'Challenge 08: Caching and' })\n    2) <div id=\"posts-list\">Complete Challenge 08 per README.</div> aka getByText('Complete Challenge 08 per')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=Challenge 08')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=Challenge 08')\nExpected: visible\nError: strict mode violation: locator('text=Challenge 08') resolved to 2 elements:\n    1) <h2>Challenge 08: Caching and Cache Tags</h2> aka getByRole('heading', { name: 'Challenge 08: Caching and' })\n    2) <div id=\"posts-list\">Complete Challenge 08 per README.</div> aka getByText('Complete Challenge 08 per')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=Challenge 08')\u001b[22m\n\n    at C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts:9:53",
+                            "location": {
+                              "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                              "column": 53,
+                              "line": 9
+                            },
+                            "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m\n \u001b[90m  8 |\u001b[39m   test(\u001b[32m'should load challenge 08 page'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'text=Challenge 08'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\n \u001b[90m    |\u001b[39m                                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'text=Caching'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\n \u001b[90m 11 |\u001b[39m   })\n \u001b[90m 12 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                                "column": 53,
+                                "line": 9
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=Challenge 08')\nExpected: visible\nError: strict mode violation: locator('text=Challenge 08') resolved to 2 elements:\n    1) <h2>Challenge 08: Caching and Cache Tags</h2> aka getByRole('heading', { name: 'Challenge 08: Caching and' })\n    2) <div id=\"posts-list\">Complete Challenge 08 per README.</div> aka getByText('Complete Challenge 08 per')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=Challenge 08')\u001b[22m\n\n\n   7 |\n   8 |   test('should load challenge 08 page', async ({ page }) => {\n>  9 |     await expect(page.locator('text=Challenge 08')).toBeVisible()\n     |                                                     ^\n  10 |     await expect(page.locator('text=Caching')).toBeVisible()\n  11 |   })\n  12 |\n    at C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts:9:53"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-21T09:28:04.424Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--14a17-ould-load-challenge-08-page-chromium\\test-failed-1.png"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--14a17-ould-load-challenge-08-page-chromium\\error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                            "column": 53,
+                            "line": 9
+                          }
+                        },
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 625,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=Challenge 08')\nExpected: visible\nError: strict mode violation: locator('text=Challenge 08') resolved to 2 elements:\n    1) <h2>Challenge 08: Caching and Cache Tags</h2> aka getByRole('heading', { name: 'Challenge 08: Caching and' })\n    2) <div id=\"posts-list\">Complete Challenge 08 per README.</div> aka getByText('Complete Challenge 08 per')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=Challenge 08')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=Challenge 08')\nExpected: visible\nError: strict mode violation: locator('text=Challenge 08') resolved to 2 elements:\n    1) <h2>Challenge 08: Caching and Cache Tags</h2> aka getByRole('heading', { name: 'Challenge 08: Caching and' })\n    2) <div id=\"posts-list\">Complete Challenge 08 per README.</div> aka getByText('Complete Challenge 08 per')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=Challenge 08')\u001b[22m\n\n    at C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts:9:53",
+                            "location": {
+                              "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                              "column": 53,
+                              "line": 9
+                            },
+                            "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m\n \u001b[90m  8 |\u001b[39m   test(\u001b[32m'should load challenge 08 page'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'text=Challenge 08'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\n \u001b[90m    |\u001b[39m                                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'text=Caching'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\n \u001b[90m 11 |\u001b[39m   })\n \u001b[90m 12 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                                "column": 53,
+                                "line": 9
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=Challenge 08')\nExpected: visible\nError: strict mode violation: locator('text=Challenge 08') resolved to 2 elements:\n    1) <h2>Challenge 08: Caching and Cache Tags</h2> aka getByRole('heading', { name: 'Challenge 08: Caching and' })\n    2) <div id=\"posts-list\">Complete Challenge 08 per README.</div> aka getByText('Complete Challenge 08 per')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=Challenge 08')\u001b[22m\n\n\n   7 |\n   8 |   test('should load challenge 08 page', async ({ page }) => {\n>  9 |     await expect(page.locator('text=Challenge 08')).toBeVisible()\n     |                                                     ^\n  10 |     await expect(page.locator('text=Caching')).toBeVisible()\n  11 |   })\n  12 |\n    at C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts:9:53"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 1,
+                          "startTime": "2026-08-21T09:28:07.510Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--14a17-ould-load-challenge-08-page-chromium-retry1\\test-failed-1.png"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--14a17-ould-load-challenge-08-page-chromium-retry1\\error-context.md"
+                            },
+                            {
+                              "name": "trace",
+                              "contentType": "application/zip",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--14a17-ould-load-challenge-08-page-chromium-retry1\\trace.zip"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                            "column": 53,
+                            "line": 9
+                          }
+                        },
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 453,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=Challenge 08')\nExpected: visible\nError: strict mode violation: locator('text=Challenge 08') resolved to 2 elements:\n    1) <h2>Challenge 08: Caching and Cache Tags</h2> aka getByRole('heading', { name: 'Challenge 08: Caching and' })\n    2) <div id=\"posts-list\">Complete Challenge 08 per README.</div> aka getByText('Complete Challenge 08 per')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=Challenge 08')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=Challenge 08')\nExpected: visible\nError: strict mode violation: locator('text=Challenge 08') resolved to 2 elements:\n    1) <h2>Challenge 08: Caching and Cache Tags</h2> aka getByRole('heading', { name: 'Challenge 08: Caching and' })\n    2) <div id=\"posts-list\">Complete Challenge 08 per README.</div> aka getByText('Complete Challenge 08 per')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=Challenge 08')\u001b[22m\n\n    at C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts:9:53",
+                            "location": {
+                              "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                              "column": 53,
+                              "line": 9
+                            },
+                            "snippet": "\u001b[0m \u001b[90m  7 |\u001b[39m\n \u001b[90m  8 |\u001b[39m   test(\u001b[32m'should load challenge 08 page'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  9 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'text=Challenge 08'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\n \u001b[90m    |\u001b[39m                                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'text=Caching'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\n \u001b[90m 11 |\u001b[39m   })\n \u001b[90m 12 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                                "column": 53,
+                                "line": 9
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('text=Challenge 08')\nExpected: visible\nError: strict mode violation: locator('text=Challenge 08') resolved to 2 elements:\n    1) <h2>Challenge 08: Caching and Cache Tags</h2> aka getByRole('heading', { name: 'Challenge 08: Caching and' })\n    2) <div id=\"posts-list\">Complete Challenge 08 per README.</div> aka getByText('Complete Challenge 08 per')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('text=Challenge 08')\u001b[22m\n\n\n   7 |\n   8 |   test('should load challenge 08 page', async ({ page }) => {\n>  9 |     await expect(page.locator('text=Challenge 08')).toBeVisible()\n     |                                                     ^\n  10 |     await expect(page.locator('text=Caching')).toBeVisible()\n  11 |   })\n  12 |\n    at C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts:9:53"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 2,
+                          "startTime": "2026-08-21T09:28:10.648Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--14a17-ould-load-challenge-08-page-chromium-retry2\\test-failed-1.png"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--14a17-ould-load-challenge-08-page-chromium-retry2\\error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                            "column": 53,
+                            "line": 9
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "cc4b1dfc0eb6cfe77aae-a520006593dc32b158d9",
+                  "file": "challenge-08.spec.ts",
+                  "line": 8,
+                  "column": 3
+                },
+                {
+                  "title": "should have posts list or content",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 5461,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('posts-list')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('posts-list')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('posts-list')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('posts-list')\u001b[22m\n\n    at C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts:14:50",
+                            "location": {
+                              "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                              "column": 50,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[0m \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   test(\u001b[32m'should have posts list or content'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'posts-list'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\n \u001b[90m    |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   })\n \u001b[90m 16 |\u001b[39m })\n \u001b[90m 17 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                                "column": 50,
+                                "line": 14
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('posts-list')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('posts-list')\u001b[22m\n\n\n  12 |\n  13 |   test('should have posts list or content', async ({ page }) => {\n> 14 |     await expect(page.getByTestId('posts-list')).toBeVisible()\n     |                                                  ^\n  15 |   })\n  16 | })\n  17 |\n    at C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts:14:50"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-21T09:28:13.376Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--5c649--have-posts-list-or-content-chromium\\test-failed-1.png"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--5c649--have-posts-list-or-content-chromium\\error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                            "column": 50,
+                            "line": 14
+                          }
+                        },
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 5634,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('posts-list')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('posts-list')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('posts-list')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('posts-list')\u001b[22m\n\n    at C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts:14:50",
+                            "location": {
+                              "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                              "column": 50,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[0m \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   test(\u001b[32m'should have posts list or content'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'posts-list'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\n \u001b[90m    |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   })\n \u001b[90m 16 |\u001b[39m })\n \u001b[90m 17 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                                "column": 50,
+                                "line": 14
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('posts-list')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('posts-list')\u001b[22m\n\n\n  12 |\n  13 |   test('should have posts list or content', async ({ page }) => {\n> 14 |     await expect(page.getByTestId('posts-list')).toBeVisible()\n     |                                                  ^\n  15 |   })\n  16 | })\n  17 |\n    at C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts:14:50"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 1,
+                          "startTime": "2026-08-21T09:28:21.512Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--5c649--have-posts-list-or-content-chromium-retry1\\test-failed-1.png"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--5c649--have-posts-list-or-content-chromium-retry1\\error-context.md"
+                            },
+                            {
+                              "name": "trace",
+                              "contentType": "application/zip",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--5c649--have-posts-list-or-content-chromium-retry1\\trace.zip"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                            "column": 50,
+                            "line": 14
+                          }
+                        },
+                        {
+                          "workerIndex": 5,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 5437,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('posts-list')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('posts-list')\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('posts-list')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('posts-list')\u001b[22m\n\n    at C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts:14:50",
+                            "location": {
+                              "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                              "column": 50,
+                              "line": 14
+                            },
+                            "snippet": "\u001b[0m \u001b[90m 12 |\u001b[39m\n \u001b[90m 13 |\u001b[39m   test(\u001b[32m'should have posts list or content'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 14 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m'posts-list'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\n \u001b[90m    |\u001b[39m                                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 15 |\u001b[39m   })\n \u001b[90m 16 |\u001b[39m })\n \u001b[90m 17 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                                "column": 50,
+                                "line": 14
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('posts-list')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('posts-list')\u001b[22m\n\n\n  12 |\n  13 |   test('should have posts list or content', async ({ page }) => {\n> 14 |     await expect(page.getByTestId('posts-list')).toBeVisible()\n     |                                                  ^\n  15 |   })\n  16 | })\n  17 |\n    at C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts:14:50"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 2,
+                          "startTime": "2026-08-21T09:28:29.763Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--5c649--have-posts-list-or-content-chromium-retry2\\test-failed-1.png"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\test-results\\challenge-08-Challenge-08--5c649--have-posts-list-or-content-chromium-retry2\\error-context.md"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\02-redux-rtk-query\\project\\tests\\e2e\\challenge-08.spec.ts",
+                            "column": 50,
+                            "line": 14
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "cc4b1dfc0eb6cfe77aae-f2f94d63d4b9c539a5e4",
+                  "file": "challenge-08.spec.ts",
+                  "line": 13,
+                  "column": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "error": "Command failed: npx playwright test \"tests/e2e/challenge-08.spec.ts\" --reporter=json"
+    },
+    "aiReviewResults": {
+      "challengeId": "08-caching-refetch",
+      "timestamp": "2026-08-21T09:28:36.125Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Tag types are correctly defined in `apiSlice.ts` (`tagTypes: ['User', 'Post']`).",
+        "Both query endpoints (`getUsers`, `getPosts`) use `providesTags` to expose individual entity tags and a `LIST` tag.",
+        "Mutation endpoints (`createUser`, `addPost`) correctly use `invalidatesTags` to trigger refetches of the corresponding list queries.",
+        "TypeScript types are consistently applied across the API slice and mock server, ensuring type safety.",
+        "Error handling is uniform across all `queryFn` implementations, providing a clear error shape."
+      ],
+      "improvements": [
+        "Move the repetitive `queryFn` logic into a reusable helper or use the built‑in `fetchBaseQuery` with a `url` field to reduce duplication in `apiSlice.ts`.",
+        "Add `deleteUser` and `deletePost` mutation endpoints with appropriate `invalidatesTags` to cover all CRUD operations.",
+        "Consider adding individual entity queries (`getUserById`, `getPostById`) that provide tags for the specific entity (`{ type: 'User', id }`), which would allow more granular cache invalidation.",
+        "Remove the explicit `as const` casts on tag objects; the compiler can infer the literal types from the `tagTypes` array.",
+        "Extract the common error handling into a small utility function to keep the endpoint definitions concise.",
+        "Ensure the Redux store is configured with `apiSlice.reducer` and `apiSlice.middleware` (not shown here) so that the tags actually work at runtime."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies all functional requirements: tag types, providesTags, and invalidatesTags are correctly applied, and TypeScript is used throughout. The code follows RTK Query conventions and is easy to read, though some duplication could be reduced with helper functions or the default `fetchBaseQuery` usage.",
+      "requirementCompliance": 92
+    },
+    "aiResults": {
+      "challengeId": "08-caching-refetch",
+      "timestamp": "2026-08-21T09:28:36.125Z",
+      "score": 86,
+      "feedback": [],
+      "strengths": [
+        "Tag types are correctly defined in `apiSlice.ts` (`tagTypes: ['User', 'Post']`).",
+        "Both query endpoints (`getUsers`, `getPosts`) use `providesTags` to expose individual entity tags and a `LIST` tag.",
+        "Mutation endpoints (`createUser`, `addPost`) correctly use `invalidatesTags` to trigger refetches of the corresponding list queries.",
+        "TypeScript types are consistently applied across the API slice and mock server, ensuring type safety.",
+        "Error handling is uniform across all `queryFn` implementations, providing a clear error shape."
+      ],
+      "improvements": [
+        "Move the repetitive `queryFn` logic into a reusable helper or use the built‑in `fetchBaseQuery` with a `url` field to reduce duplication in `apiSlice.ts`.",
+        "Add `deleteUser` and `deletePost` mutation endpoints with appropriate `invalidatesTags` to cover all CRUD operations.",
+        "Consider adding individual entity queries (`getUserById`, `getPostById`) that provide tags for the specific entity (`{ type: 'User', id }`), which would allow more granular cache invalidation.",
+        "Remove the explicit `as const` casts on tag objects; the compiler can infer the literal types from the `tagTypes` array.",
+        "Extract the common error handling into a small utility function to keep the endpoint definitions concise.",
+        "Ensure the Redux store is configured with `apiSlice.reducer` and `apiSlice.middleware` (not shown here) so that the tags actually work at runtime."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies all functional requirements: tag types, providesTags, and invalidatesTags are correctly applied, and TypeScript is used throughout. The code follows RTK Query conventions and is easy to read, though some duplication could be reduced with helper functions or the default `fetchBaseQuery` usage.",
+      "requirementCompliance": 92
+    }
   }
 ]
