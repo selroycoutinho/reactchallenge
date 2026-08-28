@@ -73,22 +73,22 @@
     "challengeName": "API Route Handlers",
     "aiReview": {
       "challengeId": "04-api-route-handlers",
-      "timestamp": "2026-08-28T12:54:47.035Z",
+      "timestamp": "2026-08-28T12:57:11.608Z",
       "score": 83,
       "feedback": [],
       "strengths": [
-        "Clear and concise implementation using TypeScript types for request/response shapes.",
-        "Straightforward use of `Response.json` for both GET and POST, matching test expectations.",
-        "In-memory data store keeps the example simple and easy to understand."
+        "Clear TypeScript types for Post and request body",
+        "Simple, concise implementation that meets the challenge requirements",
+        "Uses `Response.json` consistently for both GET and POST"
       ],
       "improvements": [
-        "Add basic validation and error handling for the POST request (e.g., check that `title` and `body` are strings).",
-        "Consider using `NextResponse` for consistency with Next.js API conventions and to easily set headers or status codes.",
-        "Move the in‑memory `posts` array into a separate module or service to keep the route handler focused on request handling and improve testability."
+        "Add basic validation for the POST body and return a 400 error if required fields are missing",
+        "Consider using `NextResponse` for consistency with Next.js API route conventions",
+        "Move the `Post` type to a shared types file and avoid mutating the global `posts` array for future scalability"
       ],
       "readability": 85,
       "maintainability": 80,
-      "overall": "The handler is functional and meets the challenge requirements, but adding validation, error handling, and a clearer separation of concerns would make the code more robust and maintainable."
+      "overall": "The implementation is clean, functional, and meets the challenge specifications. With a few enhancements around validation, error handling, and code organization, it would be even more robust and maintainable."
     }
   }
 ]
