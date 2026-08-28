@@ -1,8 +1,6 @@
 import Link from 'next/link'
+import Counter from './components/Counter'
 
-// Server Component
-// App Directory
-// File-based routing
 export default function HomePage() {
   return (
     <main>
@@ -10,6 +8,8 @@ export default function HomePage() {
       <p>Welcome to the Next.js App Router.</p>
 
       <Link href="/about">About</Link>
+
+      <Counter />
     </main>
   )
 }
