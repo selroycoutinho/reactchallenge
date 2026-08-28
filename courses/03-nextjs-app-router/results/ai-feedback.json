@@ -44,5 +44,28 @@
       "maintainability": 88,
       "overall": "The implementation cleanly demonstrates the distinction between server and client components in Next.js. The code is readable, maintainable, and meets the challenge requirements. Minor accessibility and documentation tweaks would elevate it to a production‑ready standard."
     }
+  },
+  {
+    "challengeId": "03-data-fetching-server",
+    "challengeName": "Data Fetching in Server Components",
+    "aiReview": {
+      "challengeId": "03-data-fetching-server",
+      "timestamp": "2026-08-28T12:51:33.203Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Uses an async Server Component with native fetch, meeting the challenge requirements.",
+        "TypeScript is used to type the response data, improving type safety.",
+        "Clear error handling with a fallback UI ensures the page remains usable if the fetch fails."
+      ],
+      "improvements": [
+        "Add an error parameter to the catch block (e.g., `catch (error)`) so that you can log or display more detailed error information for debugging.",
+        "Extract the data‑fetching logic into a separate helper or service function. This makes the component cleaner and the fetch logic reusable in other components or tests.",
+        "Consider adding a loading state or skeleton UI if the fetch might take noticeable time, improving perceived performance for users."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation satisfies all functional and technical requirements, is clean and readable, and passes ESLint. With minor enhancements to error handling and code reuse, it would be even more robust and maintainable."
+    }
   }
 ]
