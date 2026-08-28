@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PostsList from './PostsList'
 
 type Post = {
   id: number
@@ -119,6 +120,7 @@ export default async function PostsPage({
             )}
           </nav>
         )}
+        <PostsList />
       </main>
     )
   } catch {

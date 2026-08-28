@@ -1,11 +1,11 @@
 {
   "courseId": "03-nextjs-app-router",
   "courseName": "Next.js App Router",
-  "lastUpdated": "2026-08-28T13:51:40.314Z",
+  "lastUpdated": "2026-08-28T14:02:29.967Z",
   "totalChallenges": 17,
-  "completedChallenges": 15,
-  "averageScore": 88.7,
-  "completionPercentage": 88.2,
+  "completedChallenges": 16,
+  "averageScore": 88.5,
+  "completionPercentage": 94.1,
   "badgeLevel": "silver",
   "challengeResults": [
     {
@@ -97,6 +97,12 @@
       "challengeName": "Redux Toolkit with Next.js",
       "score": 90.55,
       "passed": true
+    },
+    {
+      "challengeId": "16-rtk-query-with-nextjs",
+      "challengeName": "RTK Query with Next.js",
+      "score": 84.17,
+      "passed": true
     }
   ],
   "skillStrengths": [
@@ -114,7 +120,8 @@
     "Metadata and SEO",
     "Images and Fonts",
     "Search and Pagination",
-    "Redux Toolkit with Next.js"
+    "Redux Toolkit with Next.js",
+    "RTK Query with Next.js"
   ],
   "improvementAreas": []
 }
