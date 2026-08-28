@@ -2947,5 +2947,228 @@
       "maintainability": 80,
       "overall": "The code demonstrates solid use of Next.js App Router features and good practices for data fetching and error handling. To fully meet the challenge criteria, add page-level metadata and consider dynamic metadata for post details. With those adjustments, the implementation will be both compliant and robust."
     }
+  },
+  {
+    "challengeId": "13-images-and-fonts",
+    "challengeName": "Images and Fonts",
+    "timestamp": "2026-08-28T13:41:06.797Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 0,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 83
+    },
+    "totalScore": 87.45,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 13: Images and Fonts"
+              ],
+              "fullName": " Challenge 13: Images and Fonts should use next/image",
+              "status": "passed",
+              "title": "should use next/image",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 13: Images and Fonts"
+              ],
+              "fullName": " Challenge 13: Images and Fonts should use next/font",
+              "status": "passed",
+              "title": "should use next/font",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787924469988,
+          "endTime": 1787924469990,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/seema/Desktop/reactchallenge/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-13.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\layout.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 0,
+      "passed": false,
+      "patternsFound": [],
+      "patternsMissing": [
+        "nextImage",
+        "nextFont",
+        "nextImage",
+        "nextFont"
+      ],
+      "details": [
+        {
+          "file": "app/page.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "nextImage",
+            "nextFont"
+          ]
+        },
+        {
+          "file": "app/layout.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "nextImage",
+            "nextFont"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-13.spec.ts",
+          "file": "challenge-13.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 13: Images and Fonts - E2E",
+              "file": "challenge-13.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load home page with content",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 4004,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-28T13:41:27.983Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "b108b4dbebb7686e0d0c-c5fe66dbe10f14d68146",
+                  "file": "challenge-13.spec.ts",
+                  "line": 8,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "13-images-and-fonts",
+      "timestamp": "2026-08-28T13:41:32.922Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Correctly uses `next/image` with required props for optimized image rendering.",
+        "Integrates `next/font` from Google Fonts and applies the font class to the layout.",
+        "TypeScript is used consistently and the code passes ESLint without console statements."
+      ],
+      "improvements": [
+        "Add more descriptive `alt` text for the placeholder image to improve accessibility.",
+        "Move the navigation markup into a reusable component or a separate layout file to keep `RootLayout` focused on structure.",
+        "Wrap the `<nav>` in a `<header>` element and consider adding a `<footer>` for better semantic structure."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation meets the core requirements of the challenge, demonstrating proper use of `next/image` and `next/font`. With minor adjustments to accessibility and component structure, the code will be even cleaner and easier to maintain."
+    },
+    "aiResults": {
+      "challengeId": "13-images-and-fonts",
+      "timestamp": "2026-08-28T13:41:32.922Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Correctly uses `next/image` with required props for optimized image rendering.",
+        "Integrates `next/font` from Google Fonts and applies the font class to the layout.",
+        "TypeScript is used consistently and the code passes ESLint without console statements."
+      ],
+      "improvements": [
+        "Add more descriptive `alt` text for the placeholder image to improve accessibility.",
+        "Move the navigation markup into a reusable component or a separate layout file to keep `RootLayout` focused on structure.",
+        "Wrap the `<nav>` in a `<header>` element and consider adding a `<footer>` for better semantic structure."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation meets the core requirements of the challenge, demonstrating proper use of `next/image` and `next/font`. With minor adjustments to accessibility and component structure, the code will be even cleaner and easier to maintain."
+    }
   }
 ]

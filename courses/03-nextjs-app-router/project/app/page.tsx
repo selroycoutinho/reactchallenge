@@ -1,50 +1,21 @@
-type Post = {
-  id: number
-  title: string
-  body: string
-}
+import Image from 'next/image'
+import Link from 'next/link'
 
-export default async function PostsPage() {
-  try {
-    const response = await fetch(
-      'https://jsonplaceholder.typicode.com/posts',
-      {
-        next: { revalidate: 60 },
-      }
-    )
+export default function HomePage() {
+  return (
+    <main>
+      <h1>Welcome to Next.js App Router</h1>
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch posts')
-    }
+      <Image
+        src="https://placehold.co/600x400/png"
+        alt="Placeholder image"
+        width={600}
+        height={400}
+      />
 
-    const posts: Post[] = await response.json()
-
-    return (
-      <main>
-        <h1>Posts</h1>
-
-        {/* Keep your existing AddPostForm here if you added it for Ch09 */}
-
-        {posts.length === 0 ? (
-          <p>No posts found.</p>
-        ) : (
-          <ul>
-            {posts.map((post) => (
-              <li key={post.id}>
-                <h2>{post.title}</h2>
-                <p>{post.body}</p>
-              </li>
-            ))}
-          </ul>
-        )}
-      </main>
-    )
-  } catch {
-    return (
-      <main>
-        <h1>Posts</h1>
-        <p>Unable to load posts.</p>
-      </main>
-    )
-  }
+      <nav>
+        <Link href="/about">About</Link>
+      </nav>
+    </main>
+  )
 }
