@@ -2216,5 +2216,219 @@
       "maintainability": 80,
       "overall": "The implementation demonstrates a solid grasp of Next.js server actions and cache revalidation. The code is readable and functional, but could benefit from a few refinements to improve maintainability and user experience."
     }
+  },
+  {
+    "challengeId": "10-caching-and-revalidating",
+    "challengeName": "Caching and Revalidating",
+    "timestamp": "2026-08-28T13:26:17.147Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 25,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 68
+    },
+    "totalScore": 87.7,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 10: Caching and Revalidating"
+              ],
+              "fullName": " Challenge 10: Caching and Revalidating should have fetch with cache options or revalidate",
+              "status": "passed",
+              "title": "should have fetch with cache options or revalidate",
+              "duration": 3,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787923580263,
+          "endTime": 1787923580266,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/seema/Desktop/reactchallenge/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-10.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\actions.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 25,
+      "passed": false,
+      "patternsFound": [
+        "revalidate"
+      ],
+      "patternsMissing": [
+        "fetchCache",
+        "revalidate",
+        "fetchCache"
+      ],
+      "details": [
+        {
+          "file": "app/posts/page.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "fetchCache",
+            "revalidate"
+          ]
+        },
+        {
+          "file": "app/actions.ts",
+          "patternsFound": [
+            "revalidate"
+          ],
+          "patternsMissing": [
+            "fetchCache"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-10.spec.ts",
+          "file": "challenge-10.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 10: Caching and Revalidating - E2E",
+              "file": "challenge-10.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load posts page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 3400,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-28T13:26:33.592Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "2b6a150d93e258235d20-c14a17c89c6252f46f58",
+                  "file": "challenge-10.spec.ts",
+                  "line": 8,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "10-caching-and-revalidating",
+      "timestamp": "2026-08-28T13:26:37.566Z",
+      "score": 68,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: the page component handles UI while the action handles data mutation.",
+        "TypeScript usage throughout, providing type safety for posts and form data.",
+        "On‑demand revalidation is correctly invoked after a successful POST."
+      ],
+      "improvements": [
+        "Replace the `cache: 'no-store'` fetch with a cached fetch such as `next: { revalidate: 60 }` or `cache: 'force-cache'` to satisfy the challenge requirement.",
+        "Remove the unnecessary `dynamic = 'force-dynamic'` export unless you have a specific reason to disable static rendering.",
+        "Add an error variable to the catch block (`catch (error)`) and consider logging or displaying the error message for better debugging."
+      ],
+      "readability": 70,
+      "maintainability": 65,
+      "overall": "The implementation demonstrates a solid grasp of server actions and revalidation, but it falls short of the caching requirement. Addressing the fetch caching and a few minor refactors will bring the code fully compliant with the challenge."
+    },
+    "aiResults": {
+      "challengeId": "10-caching-and-revalidating",
+      "timestamp": "2026-08-28T13:26:37.566Z",
+      "score": 68,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: the page component handles UI while the action handles data mutation.",
+        "TypeScript usage throughout, providing type safety for posts and form data.",
+        "On‑demand revalidation is correctly invoked after a successful POST."
+      ],
+      "improvements": [
+        "Replace the `cache: 'no-store'` fetch with a cached fetch such as `next: { revalidate: 60 }` or `cache: 'force-cache'` to satisfy the challenge requirement.",
+        "Remove the unnecessary `dynamic = 'force-dynamic'` export unless you have a specific reason to disable static rendering.",
+        "Add an error variable to the catch block (`catch (error)`) and consider logging or displaying the error message for better debugging."
+      ],
+      "readability": 70,
+      "maintainability": 65,
+      "overall": "The implementation demonstrates a solid grasp of server actions and revalidation, but it falls short of the caching requirement. Addressing the fetch caching and a few minor refactors will bring the code fully compliant with the challenge."
+    }
   }
 ]

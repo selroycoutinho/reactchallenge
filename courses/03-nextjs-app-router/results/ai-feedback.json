@@ -193,5 +193,28 @@
       "maintainability": 80,
       "overall": "The implementation demonstrates a solid grasp of Next.js server actions and cache revalidation. The code is readable and functional, but could benefit from a few refinements to improve maintainability and user experience."
     }
+  },
+  {
+    "challengeId": "10-caching-and-revalidating",
+    "challengeName": "Caching and Revalidating",
+    "aiReview": {
+      "challengeId": "10-caching-and-revalidating",
+      "timestamp": "2026-08-28T13:26:37.566Z",
+      "score": 68,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: the page component handles UI while the action handles data mutation.",
+        "TypeScript usage throughout, providing type safety for posts and form data.",
+        "On‑demand revalidation is correctly invoked after a successful POST."
+      ],
+      "improvements": [
+        "Replace the `cache: 'no-store'` fetch with a cached fetch such as `next: { revalidate: 60 }` or `cache: 'force-cache'` to satisfy the challenge requirement.",
+        "Remove the unnecessary `dynamic = 'force-dynamic'` export unless you have a specific reason to disable static rendering.",
+        "Add an error variable to the catch block (`catch (error)`) and consider logging or displaying the error message for better debugging."
+      ],
+      "readability": 70,
+      "maintainability": 65,
+      "overall": "The implementation demonstrates a solid grasp of server actions and revalidation, but it falls short of the caching requirement. Addressing the fetch caching and a few minor refactors will bring the code fully compliant with the challenge."
+    }
   }
 ]

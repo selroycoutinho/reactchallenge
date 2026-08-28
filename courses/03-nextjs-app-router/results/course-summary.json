@@ -1,11 +1,11 @@
 {
   "courseId": "03-nextjs-app-router",
   "courseName": "Next.js App Router",
-  "lastUpdated": "2026-08-28T13:24:12.321Z",
+  "lastUpdated": "2026-08-28T13:26:38.506Z",
   "totalChallenges": 17,
-  "completedChallenges": 9,
-  "averageScore": 88.9,
-  "completionPercentage": 52.9,
+  "completedChallenges": 10,
+  "averageScore": 88.7,
+  "completionPercentage": 58.8,
   "badgeLevel": "bronze",
   "challengeResults": [
     {
@@ -61,6 +61,12 @@
       "challengeName": "Server Actions and Revalidation",
       "score": 88.56,
       "passed": true
+    },
+    {
+      "challengeId": "10-caching-and-revalidating",
+      "challengeName": "Caching and Revalidating",
+      "score": 87.7,
+      "passed": true
     }
   ],
   "skillStrengths": [
@@ -72,7 +78,8 @@
     "Dynamic Routes",
     "Static and Dynamic Rendering",
     "SSR (Server-Side Rendering)",
-    "Server Actions and Revalidation"
+    "Server Actions and Revalidation",
+    "Caching and Revalidating"
   ],
   "improvementAreas": []
 }
