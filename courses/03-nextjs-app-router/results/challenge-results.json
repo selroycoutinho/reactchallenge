@@ -3910,5 +3910,286 @@
       "maintainability": 50,
       "overall": "```json\n{\n  \"readability\": 85,\n  \"maintainability\": 80,\n  \"strengths\": [\n    \"Clear separation of concerns – API slice, store, and UI component are in distinct files.\",\n    \"Proper use of RTK Query with TypeScript types, ensuring type safety across the slice and component.\",\n    \"Client component handles loading, error, and empty states gracefully.\"\n  ],\n  \"improvements\": [\n    \"The `baseUrl` in `apiSlice` is set to `'/'`. If the API is external (e.g., `https://jsonplaceholder.typicode.com`), up"
     }
+  },
+  {
+    "challengeId": "17-fullstack-capstone",
+    "challengeName": "Fullstack Capstone",
+    "timestamp": "2026-08-28T14:06:22.001Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 12.5,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 50
+    },
+    "totalScore": 83.75,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Fullstack Capstone"
+              ],
+              "fullName": " Challenge 17: Fullstack Capstone should have dynamic route page",
+              "status": "passed",
+              "title": "should have dynamic route page",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Fullstack Capstone"
+              ],
+              "fullName": " Challenge 17: Fullstack Capstone should have error.tsx or not-found.tsx",
+              "status": "passed",
+              "title": "should have error.tsx or not-found.tsx",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Fullstack Capstone"
+              ],
+              "fullName": " Challenge 17: Fullstack Capstone should have metadata or generateMetadata on dynamic page",
+              "status": "passed",
+              "title": "should have metadata or generateMetadata on dynamic page",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787925985198,
+          "endTime": 1787925985201,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/seema/Desktop/reactchallenge/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-17.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\not-found.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\[id]\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 12.5,
+      "passed": false,
+      "patternsFound": [
+        "notFound"
+      ],
+      "patternsMissing": [
+        "dynamicSegment",
+        "useClient",
+        "metadata",
+        "dynamicSegment",
+        "useClient",
+        "notFound",
+        "metadata"
+      ],
+      "details": [
+        {
+          "file": "app/posts/[id]/page.tsx",
+          "patternsFound": [
+            "notFound"
+          ],
+          "patternsMissing": [
+            "dynamicSegment",
+            "useClient",
+            "metadata"
+          ]
+        },
+        {
+          "file": "app/posts/error.tsx",
+          "error": "File does not exist",
+          "patternsFound": [],
+          "patternsMissing": [
+            "dynamicSegment",
+            "useClient",
+            "notFound",
+            "metadata"
+          ]
+        },
+        {
+          "file": "app/not-found.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "dynamicSegment",
+            "useClient",
+            "notFound",
+            "metadata"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-17.spec.ts",
+          "file": "challenge-17.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 17: Fullstack Capstone - E2E",
+              "file": "challenge-17.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load dynamic post detail page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 4213,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-28T14:06:41.295Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "10801a4643fac957b65b-280b051c09c5da4cb93b",
+                  "file": "challenge-17.spec.ts",
+                  "line": 8,
+                  "column": 7
+                },
+                {
+                  "title": "should have interactive content or form",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 797,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-28T14:06:45.805Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "10801a4643fac957b65b-3686cfc4fb575f2d1437",
+                  "file": "challenge-17.spec.ts",
+                  "line": 14,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "17-fullstack-capstone",
+      "timestamp": "2026-08-28T14:06:47.128Z",
+      "score": 50,
+      "feedback": [],
+      "strengths": [
+        "Code structure is reasonable"
+      ],
+      "improvements": [
+        "Code structure is reasonable"
+      ],
+      "readability": 50,
+      "maintainability": 50,
+      "overall": ""
+    },
+    "aiResults": {
+      "challengeId": "17-fullstack-capstone",
+      "timestamp": "2026-08-28T14:06:47.128Z",
+      "score": 50,
+      "feedback": [],
+      "strengths": [
+        "Code structure is reasonable"
+      ],
+      "improvements": [
+        "Code structure is reasonable"
+      ],
+      "readability": 50,
+      "maintainability": 50,
+      "overall": ""
+    }
   }
 ]

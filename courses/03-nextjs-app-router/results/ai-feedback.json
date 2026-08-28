@@ -347,5 +347,24 @@
       "maintainability": 50,
       "overall": "```json\n{\n  \"readability\": 85,\n  \"maintainability\": 80,\n  \"strengths\": [\n    \"Clear separation of concerns – API slice, store, and UI component are in distinct files.\",\n    \"Proper use of RTK Query with TypeScript types, ensuring type safety across the slice and component.\",\n    \"Client component handles loading, error, and empty states gracefully.\"\n  ],\n  \"improvements\": [\n    \"The `baseUrl` in `apiSlice` is set to `'/'`. If the API is external (e.g., `https://jsonplaceholder.typicode.com`), up"
     }
+  },
+  {
+    "challengeId": "17-fullstack-capstone",
+    "challengeName": "Fullstack Capstone",
+    "aiReview": {
+      "challengeId": "17-fullstack-capstone",
+      "timestamp": "2026-08-28T14:06:47.128Z",
+      "score": 50,
+      "feedback": [],
+      "strengths": [
+        "Code structure is reasonable"
+      ],
+      "improvements": [
+        "Code structure is reasonable"
+      ],
+      "readability": 50,
+      "maintainability": 50,
+      "overall": ""
+    }
   }
 ]
