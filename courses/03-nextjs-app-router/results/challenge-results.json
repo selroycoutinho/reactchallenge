@@ -2712,5 +2712,240 @@
       "maintainability": 80,
       "overall": "The implementation correctly addresses the challenge requirements with clean, type-safe code. Minor refactoring and additional error handling would further enhance robustness and maintainability."
     }
+  },
+  {
+    "challengeId": "12-metadata-and-seo",
+    "challengeName": "Metadata and SEO",
+    "timestamp": "2026-08-28T13:33:06.894Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 16.7,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 83
+    },
+    "totalScore": 89.12,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 12: Metadata and SEO"
+              ],
+              "fullName": " Challenge 12: Metadata and SEO should export metadata or generateMetadata with title/description",
+              "status": "passed",
+              "title": "should export metadata or generateMetadata with title/description",
+              "duration": 2,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787923989855,
+          "endTime": 1787923989857,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/seema/Desktop/reactchallenge/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-12.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\layout.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 16.7,
+      "passed": false,
+      "patternsFound": [
+        "metadata"
+      ],
+      "patternsMissing": [
+        "generateMetadata",
+        "metadata",
+        "generateMetadata",
+        "metadata",
+        "generateMetadata"
+      ],
+      "details": [
+        {
+          "file": "app/layout.tsx",
+          "patternsFound": [
+            "metadata"
+          ],
+          "patternsMissing": [
+            "generateMetadata"
+          ]
+        },
+        {
+          "file": "app/page.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "metadata",
+            "generateMetadata"
+          ]
+        },
+        {
+          "file": "app/posts/page.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "metadata",
+            "generateMetadata"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-12.spec.ts",
+          "file": "challenge-12.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 12: Metadata and SEO - E2E",
+              "file": "challenge-12.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should have page title",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 748,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-28T13:33:22.865Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "f77a26b762255a776dfc-a2def7c6e30580f05958",
+                  "file": "challenge-12.spec.ts",
+                  "line": 8,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "12-metadata-and-seo",
+      "timestamp": "2026-08-28T13:33:24.306Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Metadata is correctly defined in the layout with title, description, and Open Graph fields.",
+        "Server-side data fetching is implemented with proper error handling and revalidation settings.",
+        "Component structure is clear and uses semantic HTML elements."
+      ],
+      "improvements": [
+        "Add a `metadata` export (or `generateMetadata`) to at least one page component (e.g., `app/page.tsx` or `app/posts/page.tsx`) to satisfy the challenge requirement that a page, not just a layout, contains metadata.",
+        "Implement dynamic metadata for the post detail page (`app/posts/[id]/page.tsx`) using `generateMetadata({ params })` to provide a title and description based on the post ID.",
+        "Standardize fetch options across pages (use `next: { revalidate: 60 }` or `cache: 'no-store'` consistently) and consider adding explicit return types for async functions to improve type safety."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The code demonstrates solid use of Next.js App Router features and good practices for data fetching and error handling. To fully meet the challenge criteria, add page-level metadata and consider dynamic metadata for post details. With those adjustments, the implementation will be both compliant and robust."
+    },
+    "aiResults": {
+      "challengeId": "12-metadata-and-seo",
+      "timestamp": "2026-08-28T13:33:24.306Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Metadata is correctly defined in the layout with title, description, and Open Graph fields.",
+        "Server-side data fetching is implemented with proper error handling and revalidation settings.",
+        "Component structure is clear and uses semantic HTML elements."
+      ],
+      "improvements": [
+        "Add a `metadata` export (or `generateMetadata`) to at least one page component (e.g., `app/page.tsx` or `app/posts/page.tsx`) to satisfy the challenge requirement that a page, not just a layout, contains metadata.",
+        "Implement dynamic metadata for the post detail page (`app/posts/[id]/page.tsx`) using `generateMetadata({ params })` to provide a title and description based on the post ID.",
+        "Standardize fetch options across pages (use `next: { revalidate: 60 }` or `cache: 'no-store'` consistently) and consider adding explicit return types for async functions to improve type safety."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The code demonstrates solid use of Next.js App Router features and good practices for data fetching and error handling. To fully meet the challenge criteria, add page-level metadata and consider dynamic metadata for post details. With those adjustments, the implementation will be both compliant and robust."
+    }
   }
 ]

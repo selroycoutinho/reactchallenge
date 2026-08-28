@@ -2,18 +2,23 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Next.js App Router',
-  description: 'App Router challenge',
+  title: 'Next.js App Router Challenges',
+  description:
+    'A Next.js App Router project demonstrating routing, server components, data fetching, caching, and more.',
+  openGraph: {
+    title: 'Next.js App Router Challenges',
+    description:
+      'A Next.js App Router project demonstrating modern Next.js features.',
+  },
 }
 
-// Server Component
-// App Directory
-// File-based routing
+type RootLayoutProps = {
+  children: React.ReactNode
+}
+
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
@@ -23,7 +28,7 @@ export default function RootLayout({
           <Link href="/about">About</Link>
         </nav>
 
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   )
