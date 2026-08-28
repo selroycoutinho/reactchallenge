@@ -1113,5 +1113,424 @@
       "maintainability": 80,
       "overall": "The implementation is clean, functional, and meets the challenge specifications. With a few enhancements around validation, error handling, and code organization, it would be even more robust and maintainable."
     }
+  },
+  {
+    "challengeId": "05-loading-and-streaming",
+    "challengeName": "Loading and Streaming",
+    "timestamp": "2026-08-28T13:00:49.421Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 0,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 50
+    },
+    "totalScore": 82.5,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 05: Loading and Streaming"
+              ],
+              "fullName": " Challenge 05: Loading and Streaming should have loading.tsx in a route segment",
+              "status": "passed",
+              "title": "should have loading.tsx in a route segment",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 05: Loading and Streaming"
+              ],
+              "fullName": " Challenge 05: Loading and Streaming should export default loading component",
+              "status": "passed",
+              "title": "should export default loading component",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787922052193,
+          "endTime": 1787922052195,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/seema/Desktop/reactchallenge/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-05.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\loading.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 0,
+      "passed": false,
+      "patternsFound": [],
+      "patternsMissing": [
+        "loadingTsx",
+        "Suspense",
+        "loadingTsx",
+        "Suspense"
+      ],
+      "details": [
+        {
+          "file": "app/posts/loading.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "loadingTsx",
+            "Suspense"
+          ]
+        },
+        {
+          "file": "app/posts/page.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "loadingTsx",
+            "Suspense"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-05.spec.ts",
+          "file": "challenge-05.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 05: Loading and Streaming - E2E",
+              "file": "challenge-05.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load posts page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1329,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-28T13:01:05.372Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "ec25b63e8ac6a5e53e87-f77f982bcebd43afdcb3",
+                  "file": "challenge-05.spec.ts",
+                  "line": 8,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "05-loading-and-streaming",
+      "timestamp": "2026-08-28T13:01:07.409Z",
+      "score": 50,
+      "feedback": [],
+      "strengths": [
+        "Code structure is reasonable"
+      ],
+      "improvements": [
+        "Code structure is reasonable"
+      ],
+      "readability": 50,
+      "maintainability": 50,
+      "overall": ""
+    },
+    "aiResults": {
+      "challengeId": "05-loading-and-streaming",
+      "timestamp": "2026-08-28T13:01:07.409Z",
+      "score": 50,
+      "feedback": [],
+      "strengths": [
+        "Code structure is reasonable"
+      ],
+      "improvements": [
+        "Code structure is reasonable"
+      ],
+      "readability": 50,
+      "maintainability": 50,
+      "overall": ""
+    }
+  },
+  {
+    "challengeId": "06-dynamic-routes",
+    "challengeName": "Dynamic Routes",
+    "timestamp": "2026-08-28T13:04:57.894Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 50,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 88
+    },
+    "totalScore": 93.2,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 06: Dynamic Routes"
+              ],
+              "fullName": " Challenge 06: Dynamic Routes should have dynamic route segment [id] or [slug]",
+              "status": "passed",
+              "title": "should have dynamic route segment [id] or [slug]",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 06: Dynamic Routes"
+              ],
+              "fullName": " Challenge 06: Dynamic Routes should use params in page component",
+              "status": "passed",
+              "title": "should use params in page component",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787922302456,
+          "endTime": 1787922302459,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/seema/Desktop/reactchallenge/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-06.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\[id]\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 50,
+      "passed": false,
+      "patternsFound": [
+        "params"
+      ],
+      "patternsMissing": [
+        "dynamicSegment"
+      ],
+      "details": [
+        {
+          "file": "app/posts/[id]/page.tsx",
+          "patternsFound": [
+            "params"
+          ],
+          "patternsMissing": [
+            "dynamicSegment"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-06.spec.ts",
+          "file": "challenge-06.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 06: Dynamic Routes - E2E",
+              "file": "challenge-06.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load dynamic post page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 3009,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-28T13:05:18.469Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "fdfd0a4bbce1fa4a4eed-5080986329fc0070668f",
+                  "file": "challenge-06.spec.ts",
+                  "line": 8,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "06-dynamic-routes",
+      "timestamp": "2026-08-28T13:05:24.619Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "Clear dynamic route implementation using `[id]` segment",
+        "Proper TypeScript typing for `params`",
+        "Simple, self‑contained component that is easy to understand"
+      ],
+      "improvements": [
+        "Add `generateStaticParams` to pre‑render known post IDs and improve SEO",
+        "Replace placeholder content with real data fetching (e.g., from a mock API or local data file)",
+        "Include basic error handling for missing or invalid `id` values"
+      ],
+      "readability": 90,
+      "maintainability": 85,
+      "overall": "The component correctly demonstrates a dynamic route and TypeScript usage. It is clean and readable, but could be enhanced with static generation, data fetching, and error handling to meet full challenge expectations."
+    },
+    "aiResults": {
+      "challengeId": "06-dynamic-routes",
+      "timestamp": "2026-08-28T13:05:24.619Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "Clear dynamic route implementation using `[id]` segment",
+        "Proper TypeScript typing for `params`",
+        "Simple, self‑contained component that is easy to understand"
+      ],
+      "improvements": [
+        "Add `generateStaticParams` to pre‑render known post IDs and improve SEO",
+        "Replace placeholder content with real data fetching (e.g., from a mock API or local data file)",
+        "Include basic error handling for missing or invalid `id` values"
+      ],
+      "readability": 90,
+      "maintainability": 85,
+      "overall": "The component correctly demonstrates a dynamic route and TypeScript usage. It is clean and readable, but could be enhanced with static generation, data fetching, and error handling to meet full challenge expectations."
+    }
   }
 ]

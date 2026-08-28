@@ -90,5 +90,47 @@
       "maintainability": 80,
       "overall": "The implementation is clean, functional, and meets the challenge specifications. With a few enhancements around validation, error handling, and code organization, it would be even more robust and maintainable."
     }
+  },
+  {
+    "challengeId": "05-loading-and-streaming",
+    "challengeName": "Loading and Streaming",
+    "aiReview": {
+      "challengeId": "05-loading-and-streaming",
+      "timestamp": "2026-08-28T13:01:07.409Z",
+      "score": 50,
+      "feedback": [],
+      "strengths": [
+        "Code structure is reasonable"
+      ],
+      "improvements": [
+        "Code structure is reasonable"
+      ],
+      "readability": 50,
+      "maintainability": 50,
+      "overall": ""
+    }
+  },
+  {
+    "challengeId": "06-dynamic-routes",
+    "challengeName": "Dynamic Routes",
+    "aiReview": {
+      "challengeId": "06-dynamic-routes",
+      "timestamp": "2026-08-28T13:05:24.619Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "Clear dynamic route implementation using `[id]` segment",
+        "Proper TypeScript typing for `params`",
+        "Simple, self‑contained component that is easy to understand"
+      ],
+      "improvements": [
+        "Add `generateStaticParams` to pre‑render known post IDs and improve SEO",
+        "Replace placeholder content with real data fetching (e.g., from a mock API or local data file)",
+        "Include basic error handling for missing or invalid `id` values"
+      ],
+      "readability": 90,
+      "maintainability": 85,
+      "overall": "The component correctly demonstrates a dynamic route and TypeScript usage. It is clean and readable, but could be enhanced with static generation, data fetching, and error handling to meet full challenge expectations."
+    }
   }
 ]
