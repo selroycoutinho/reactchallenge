@@ -151,5 +151,24 @@
       "maintainability": 50,
       "overall": "{\n  \"readability\": 85,\n  \"maintainability\": 80,\n  \"strengths\": [\n    \"Clear separation of concerns with dedicated pages and a reusable Counter component.\",\n    \"Explicit use of `export const dynamic = 'force-dynamic'` to enforce server‑side rendering for the posts page.\",\n    \"Robust async data fetching with error handling and graceful fallback UI.\"\n  ],\n  \"improvements\": [\n    \"Add an explicit static export (`export const dynamic = 'force-static'`) to the home page or another page to demonstrat"
     }
+  },
+  {
+    "challengeId": "08-ssr-dynamic-rendering",
+    "challengeName": "SSR (Server-Side Rendering)",
+    "aiReview": {
+      "challengeId": "08-ssr-dynamic-rendering",
+      "timestamp": "2026-08-28T13:15:23.913Z",
+      "score": 50,
+      "feedback": [],
+      "strengths": [
+        "Code structure is reasonable"
+      ],
+      "improvements": [
+        "Code structure is reasonable"
+      ],
+      "readability": 50,
+      "maintainability": 50,
+      "overall": "```json\n{\n  \"readability\": 88,\n  \"maintainability\": 84,\n  \"strengths\": [\n    \"Correct use of"
+    }
   }
 ]

@@ -1,15 +1,18 @@
+export const dynamic = 'force-dynamic'
+
 type Post = {
   id: number
   title: string
   body: string
 }
 
-export const dynamic = 'force-dynamic'
-
 export default async function PostsPage() {
   try {
     const response = await fetch(
-      'https://jsonplaceholder.typicode.com/posts'
+      'https://jsonplaceholder.typicode.com/posts',
+      {
+        cache: 'no-store',
+      }
     )
 
     if (!response.ok) {
