@@ -132,5 +132,24 @@
       "maintainability": 85,
       "overall": "The component correctly demonstrates a dynamic route and TypeScript usage. It is clean and readable, but could be enhanced with static generation, data fetching, and error handling to meet full challenge expectations."
     }
+  },
+  {
+    "challengeId": "07-static-and-dynamic-rendering",
+    "challengeName": "Static and Dynamic Rendering",
+    "aiReview": {
+      "challengeId": "07-static-and-dynamic-rendering",
+      "timestamp": "2026-08-28T13:12:38.883Z",
+      "score": 50,
+      "feedback": [],
+      "strengths": [
+        "Code structure is reasonable"
+      ],
+      "improvements": [
+        "Code structure is reasonable"
+      ],
+      "readability": 50,
+      "maintainability": 50,
+      "overall": "{\n  \"readability\": 85,\n  \"maintainability\": 80,\n  \"strengths\": [\n    \"Clear separation of concerns with dedicated pages and a reusable Counter component.\",\n    \"Explicit use of `export const dynamic = 'force-dynamic'` to enforce server‑side rendering for the posts page.\",\n    \"Robust async data fetching with error handling and graceful fallback UI.\"\n  ],\n  \"improvements\": [\n    \"Add an explicit static export (`export const dynamic = 'force-static'`) to the home page or another page to demonstrat"
+    }
   }
 ]
