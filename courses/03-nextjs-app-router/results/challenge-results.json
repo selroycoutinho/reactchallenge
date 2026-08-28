@@ -2430,5 +2430,287 @@
       "maintainability": 65,
       "overall": "The implementation demonstrates a solid grasp of server actions and revalidation, but it falls short of the caching requirement. Addressing the fetch caching and a few minor refactors will bring the code fully compliant with the challenge."
     }
+  },
+  {
+    "challengeId": "11-error-handling",
+    "challengeName": "Error Handling",
+    "timestamp": "2026-08-28T13:30:15.303Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 16.7,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 83
+    },
+    "totalScore": 89.12,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 11: Error Handling"
+              ],
+              "fullName": " Challenge 11: Error Handling should have error.tsx in app or route segment",
+              "status": "passed",
+              "title": "should have error.tsx in app or route segment",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 11: Error Handling"
+              ],
+              "fullName": " Challenge 11: Error Handling should use notFound in dynamic post page",
+              "status": "passed",
+              "title": "should use notFound in dynamic post page",
+              "duration": 1,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787923818389,
+          "endTime": 1787923818391,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/seema/Desktop/reactchallenge/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-11.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\error.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\not-found.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\[id]\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 16.7,
+      "passed": false,
+      "patternsFound": [
+        "notFound"
+      ],
+      "patternsMissing": [
+        "errorTsx",
+        "notFound",
+        "errorTsx",
+        "errorTsx",
+        "notFound"
+      ],
+      "details": [
+        {
+          "file": "app/error.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "errorTsx",
+            "notFound"
+          ]
+        },
+        {
+          "file": "app/posts/[id]/page.tsx",
+          "patternsFound": [
+            "notFound"
+          ],
+          "patternsMissing": [
+            "errorTsx"
+          ]
+        },
+        {
+          "file": "app/not-found.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "errorTsx",
+            "notFound"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-11.spec.ts",
+          "file": "challenge-11.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 11: Error Handling - E2E",
+              "file": "challenge-11.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load home page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 923,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-28T13:30:31.216Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "1017095ef2170c8a8deb-38da860916fc18c9e724",
+                  "file": "challenge-11.spec.ts",
+                  "line": 8,
+                  "column": 7
+                },
+                {
+                  "title": "should handle invalid post id (404 or error)",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2016,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-28T13:30:32.316Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "1017095ef2170c8a8deb-aa714dc2f9a5dfb8e954",
+                  "file": "challenge-11.spec.ts",
+                  "line": 13,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "11-error-handling",
+      "timestamp": "2026-08-28T13:30:34.729Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: error handling, 404 handling, and post rendering are in distinct files.",
+        "Proper use of Next.js App Router features (`error.tsx`, `notFound()`, and `not-found.tsx`).",
+        "TypeScript types are defined for the post data and component props, improving type safety."
+      ],
+      "improvements": [
+        "Wrap the fetch call in a try/catch block to handle network errors and call `notFound()` or rethrow as needed.",
+        "Remove the redundant check for `post.id` after parsing JSON; the API guarantees an `id` if the response is OK.",
+        "Add a loading state or skeleton UI for the async page to improve UX while the data is being fetched.",
+        "Consider extracting the fetch logic into a reusable service or hook to make the component easier to test and maintain."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation correctly addresses the challenge requirements with clean, type-safe code. Minor refactoring and additional error handling would further enhance robustness and maintainability."
+    },
+    "aiResults": {
+      "challengeId": "11-error-handling",
+      "timestamp": "2026-08-28T13:30:34.729Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns: error handling, 404 handling, and post rendering are in distinct files.",
+        "Proper use of Next.js App Router features (`error.tsx`, `notFound()`, and `not-found.tsx`).",
+        "TypeScript types are defined for the post data and component props, improving type safety."
+      ],
+      "improvements": [
+        "Wrap the fetch call in a try/catch block to handle network errors and call `notFound()` or rethrow as needed.",
+        "Remove the redundant check for `post.id` after parsing JSON; the API guarantees an `id` if the response is OK.",
+        "Add a loading state or skeleton UI for the async page to improve UX while the data is being fetched.",
+        "Consider extracting the fetch logic into a reusable service or hook to make the component easier to test and maintain."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation correctly addresses the challenge requirements with clean, type-safe code. Minor refactoring and additional error handling would further enhance robustness and maintainability."
+    }
   }
 ]
