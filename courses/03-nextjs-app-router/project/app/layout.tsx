@@ -1,19 +1,30 @@
 import type { Metadata } from 'next'
-import './globals.css'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Next.js App Router Project',
-  description: 'Complete challenges to build your Next.js skills',
+  title: 'Next.js App Router',
+  description: 'App Router challenge',
 }
 
+// Server Component
+// App Directory
+// File-based routing
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <nav>
+          <Link href="/">Home</Link>
+          {' | '}
+          <Link href="/about">About</Link>
+        </nav>
+
+        <main>{children}</main>
+      </body>
     </html>
   )
 }
