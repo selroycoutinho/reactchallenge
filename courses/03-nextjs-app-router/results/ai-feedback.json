@@ -305,5 +305,28 @@
       "maintainability": 50,
       "overall": ""
     }
+  },
+  {
+    "challengeId": "15-redux-toolkit-with-nextjs",
+    "challengeName": "Redux Toolkit with Next.js",
+    "aiReview": {
+      "challengeId": "15-redux-toolkit-with-nextjs",
+      "timestamp": "2026-08-28T13:51:38.848Z",
+      "score": 87,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of concerns with dedicated store, provider, and layout files.",
+        "Proper use of Redux Toolkit and TypeScript, including exported RootState and AppDispatch types.",
+        "Provider is correctly marked as a client component and wraps the entire application."
+      ],
+      "improvements": [
+        "Add a client component that actually uses `useSelector`/`useDispatch` (e.g., a Counter component) to demonstrate state interaction and satisfy the challenge requirement.",
+        "Introduce comments or a README section explaining the purpose of each file and the flow of state, which will aid future maintainers.",
+        "Consider moving the slice definition into its own file (e.g., `app/store/counterSlice.ts`) to keep the store file focused on configuration and improve scalability as more slices are added."
+      ],
+      "readability": 88,
+      "maintainability": 85,
+      "overall": "The implementation correctly sets up Redux Toolkit with Next.js App Router, providing a clean and type-safe foundation. Adding an example component that consumes the store and enhancing documentation will make the solution more complete and maintainable."
+    }
   }
 ]

@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import Link from 'next/link'
-
+import Counter from './components/Counter'
+import Image from 'next/image'
 export default function HomePage() {
   return (
     <main>
@@ -16,6 +16,7 @@ export default function HomePage() {
       <nav>
         <Link href="/about">About</Link>
       </nav>
+       <Counter />
     </main>
   )
 }

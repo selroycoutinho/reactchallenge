@@ -1,15 +1,27 @@
 'use client'
 
-import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import type { RootState, AppDispatch } from '../store/store'
+import { increment, decrement } from '../store/store'
 
 export default function Counter() {
-  const [count, setCount] = useState(0)
+  const count = useSelector(
+    (state: RootState) => state.counter.value
+  )
+
+  const dispatch = useDispatch<AppDispatch>()
 
   return (
     <div>
-      <h2>Counter: {count}</h2>
-      <button onClick={() => setCount(count + 1)}>
-        Increment
+      <h2>Redux Counter</h2>
+      <p>Count: {count}</p>
+
+      <button onClick={() => dispatch(decrement)}>
+        -
+      </button>
+
+      <button onClick={() => dispatch(increment)}>
+        +
       </button>
     </div>
   )

@@ -1,34 +1,20 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({
-  subsets: ['latin'],
-})
+import StoreProvider from './providers/StoreProvider'
 
 export const metadata: Metadata = {
-  title: 'Next.js App Router Challenges',
-  description:
-    'A Next.js App Router project demonstrating modern Next.js features.',
-}
-
-type RootLayoutProps = {
-  children: React.ReactNode
+  title: 'Next.js App Router',
+  description: 'Next.js App Router challenge project',
 }
 
 export default function RootLayout({
   children,
-}: RootLayoutProps) {
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <nav>
-          <Link href="/">Home</Link>
-          {' | '}
-          <Link href="/about">About</Link>
-        </nav>
-
-        {children}
+      <body>
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   )
