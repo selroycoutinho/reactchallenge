@@ -1964,5 +1964,257 @@
       "maintainability": 50,
       "overall": "```json\n{\n  \"readability\": 88,\n  \"maintainability\": 84,\n  \"strengths\": [\n    \"Correct use of"
     }
+  },
+  {
+    "challengeId": "09-server-actions-and-revalidation",
+    "challengeName": "Server Actions and Revalidation",
+    "timestamp": "2026-08-28T13:23:50.218Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 11.1,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 83
+    },
+    "totalScore": 88.56,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 09: Server Actions and Revalidation"
+              ],
+              "fullName": " Challenge 09: Server Actions and Revalidation should have use server in a file",
+              "status": "passed",
+              "title": "should have use server in a file",
+              "duration": 2,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 09: Server Actions and Revalidation"
+              ],
+              "fullName": " Challenge 09: Server Actions and Revalidation should call revalidatePath or revalidateTag",
+              "status": "passed",
+              "title": "should call revalidatePath or revalidateTag",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1787923433016,
+          "endTime": 1787923433018,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/seema/Desktop/reactchallenge/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-09.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\actions.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\components\\AddPostForm.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\seema\\Desktop\\reactchallenge\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 11.1,
+      "passed": false,
+      "patternsFound": [
+        "revalidatePath"
+      ],
+      "patternsMissing": [
+        "useServer",
+        "revalidateTag",
+        "useServer",
+        "revalidatePath",
+        "revalidateTag",
+        "useServer",
+        "revalidatePath",
+        "revalidateTag"
+      ],
+      "details": [
+        {
+          "file": "app/actions.ts",
+          "patternsFound": [
+            "revalidatePath"
+          ],
+          "patternsMissing": [
+            "useServer",
+            "revalidateTag"
+          ]
+        },
+        {
+          "file": "app/posts/page.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "useServer",
+            "revalidatePath",
+            "revalidateTag"
+          ]
+        },
+        {
+          "file": "app/components/AddPostForm.tsx",
+          "patternsFound": [],
+          "patternsMissing": [
+            "useServer",
+            "revalidatePath",
+            "revalidateTag"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-09.spec.ts",
+          "file": "challenge-09.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 09: Server Actions and Revalidation - E2E",
+              "file": "challenge-09.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should have form or button on posts page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 4311,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-08-28T13:24:05.807Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "a1b04685a79f6082459c-d957e8fad4ed5eda426d",
+                  "file": "challenge-09.spec.ts",
+                  "line": 8,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "09-server-actions-and-revalidation",
+      "timestamp": "2026-08-28T13:24:10.721Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of server and client logic using `'use server'` and `'use client'` directives.",
+        "Proper use of `revalidatePath` to keep the posts list fresh after a mutation.",
+        "Simple, self‑contained form handling with immediate user feedback."
+      ],
+      "improvements": [
+        "Move the API base URL to an environment variable or a shared constants file to avoid hard‑coding and make future changes easier.",
+        "Add more descriptive error handling – e.g., return the error message from the server action and display it in the form instead of a generic message.",
+        "Consider using `useFormState` or `FormData` type annotations for stronger type safety and clearer intent."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation demonstrates a solid grasp of Next.js server actions and cache revalidation. The code is readable and functional, but could benefit from a few refinements to improve maintainability and user experience."
+    },
+    "aiResults": {
+      "challengeId": "09-server-actions-and-revalidation",
+      "timestamp": "2026-08-28T13:24:10.721Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of server and client logic using `'use server'` and `'use client'` directives.",
+        "Proper use of `revalidatePath` to keep the posts list fresh after a mutation.",
+        "Simple, self‑contained form handling with immediate user feedback."
+      ],
+      "improvements": [
+        "Move the API base URL to an environment variable or a shared constants file to avoid hard‑coding and make future changes easier.",
+        "Add more descriptive error handling – e.g., return the error message from the server action and display it in the form instead of a generic message.",
+        "Consider using `useFormState` or `FormData` type annotations for stronger type safety and clearer intent."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation demonstrates a solid grasp of Next.js server actions and cache revalidation. The code is readable and functional, but could benefit from a few refinements to improve maintainability and user experience."
+    }
   }
 ]

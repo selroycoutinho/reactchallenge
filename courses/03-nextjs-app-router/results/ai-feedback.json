@@ -170,5 +170,28 @@
       "maintainability": 50,
       "overall": "```json\n{\n  \"readability\": 88,\n  \"maintainability\": 84,\n  \"strengths\": [\n    \"Correct use of"
     }
+  },
+  {
+    "challengeId": "09-server-actions-and-revalidation",
+    "challengeName": "Server Actions and Revalidation",
+    "aiReview": {
+      "challengeId": "09-server-actions-and-revalidation",
+      "timestamp": "2026-08-28T13:24:10.721Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "Clear separation of server and client logic using `'use server'` and `'use client'` directives.",
+        "Proper use of `revalidatePath` to keep the posts list fresh after a mutation.",
+        "Simple, self‑contained form handling with immediate user feedback."
+      ],
+      "improvements": [
+        "Move the API base URL to an environment variable or a shared constants file to avoid hard‑coding and make future changes easier.",
+        "Add more descriptive error handling – e.g., return the error message from the server action and display it in the form instead of a generic message.",
+        "Consider using `useFormState` or `FormData` type annotations for stronger type safety and clearer intent."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The implementation demonstrates a solid grasp of Next.js server actions and cache revalidation. The code is readable and functional, but could benefit from a few refinements to improve maintainability and user experience."
+    }
   }
 ]

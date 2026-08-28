@@ -1,5 +1,5 @@
 export const dynamic = 'force-dynamic'
-
+import AddPostForm from '../components/AddPostForm'
 type Post = {
   id: number
   title: string
@@ -24,6 +24,7 @@ export default async function PostsPage() {
     return (
       <main>
         <h1>Posts</h1>
+        <AddPostForm />
 
         {posts.length === 0 ? (
           <p>No posts found.</p>
